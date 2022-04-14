@@ -4,23 +4,43 @@ import SelectFields from '../component/SelectFields';
 
 export default function Home() {
   const id = useId();
+  const styleOption = {
+    color: 'black',
+    textDecoration: 'none',
+    display: 'flex',
+  };
   return (
     <Paper
-      sx={{ display: 'flex', width: '80vw', margin: '30px auto', padding: 5 }}
+      sx={{
+        display: { xs: 'block', md: 'flex' },
+        justifyContent: 'space-between',
+        // width: '80vw',
+        width: { lg: '80vw', xs: '40vw', md: '70vw' },
+        margin: '30px auto',
+        padding: 5,
+      }}
     >
-      <div>
+      <p
+        style={{
+          textAlign: 'justify',
+          // width: { lg: '30vw', md: '10vw' },
+          width: '35vw',
+        }}
+      >
         Use this Schema.org structured data generator to create JSON-LD markups,
         including all of the required item properties and more. Click on the
         Google icon to test your markup with the Structured Data Testing Tool
         and/or the Rich Results Test.
-      </div>
+      </p>
       <SelectFields
-        // labelInput="Apjfkkjfdkjdjksalkljk"
         idInput={id}
-        // inputLabelId={id}
         variantInput="standard"
-        textLabel="age"
-        styleSx={{ width: '70vw', margin: 1 }}
+        textLabel="Which Schema.org markup would you like to create?"
+        styleSx={{
+          width: '40vw',
+          // width: { lg: '40vw', md: '10vw' },
+          margin: 1,
+        }}
         onChangeInput={(e) => console.log(e.target.value)}
       />
     </Paper>

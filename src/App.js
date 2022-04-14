@@ -8,8 +8,9 @@ import Product from './pages/Product';
 function App() {
   return (
     <BrowserRouter>
+      <Home />
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* <Route path="/" element={<Home />} /> */}
         <Route path="/form" element={<Form />} />
         <Route path="/website" element={<Website />} />
         <Route path="/video" element={<Video />} />

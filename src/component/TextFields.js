@@ -9,6 +9,9 @@ export default function TextFields({
   idInput,
   labelInput,
   onChangeInput,
+  styleInput,
+  variantStyle,
+  placeholderInput,
 }) {
   return (
     <TextField
@@ -16,8 +19,11 @@ export default function TextFields({
       type={typeInput}
       value={valueInput}
       id={idInput}
+      sx={styleInput}
       label={labelInput}
       onChange={onChangeInput}
+      variant={variantStyle}
+      placeholder={placeholderInput}
     />
   );
 }

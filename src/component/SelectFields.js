@@ -7,6 +7,7 @@ import VideocamIcon from '@mui/icons-material/Videocam';
 import LanguageIcon from '@mui/icons-material/Language';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import Recipe from '@mui/icons-material/Receipt';
+import FormControl from '@mui/material/FormControl';
 export default function SelectFields({
   onChangeInput,
   labelInput,
@@ -37,7 +38,7 @@ export default function SelectFields({
     display: 'flex',
   };
   return (
-    <>
+    <FormControl>
       <InputLabel id="demo-controlled-open-select-label">
         {textLabel}
       </InputLabel>
@@ -54,9 +55,12 @@ export default function SelectFields({
         id={idInput}
         placeholder="Which Schema.org markup would you like to create?"
       >
-        <MenuItem value="">
-          <em>None</em>
-        </MenuItem>
+        <Link to="/" style={styleOption}>
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+        </Link>
+
         <Link to="/video" style={styleOption}>
           <VideocamIcon />
           <MenuItem value="video">Video</MenuItem>
@@ -76,6 +80,6 @@ export default function SelectFields({
           <MenuItem value="website">Website</MenuItem>
         </Link>
       </Select>
-    </>
+    </FormControl>
   );
 }
