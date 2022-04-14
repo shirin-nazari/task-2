@@ -6,8 +6,9 @@ import { Link } from 'react-router-dom';
 import VideocamIcon from '@mui/icons-material/Videocam';
 import LanguageIcon from '@mui/icons-material/Language';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
-import Recipe from '@mui/icons-material/Receipt';
+import Recipet from '@mui/icons-material/Receipt';
 import FormControl from '@mui/material/FormControl';
+
 export default function SelectFields({
   onChangeInput,
   labelInput,
@@ -18,6 +19,7 @@ export default function SelectFields({
   variantInput,
 }) {
   const [whichSchema, setWhichSchema] = useState('');
+
   const [open, setOpen] = useState(false);
 
   const handleChange = (event) => {
@@ -55,30 +57,36 @@ export default function SelectFields({
         id={idInput}
         placeholder="Which Schema.org markup would you like to create?"
       >
-        <Link to="/" style={styleOption}>
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-        </Link>
+        {/* <Link to="/" style={styleOption}> */}
+        <MenuItem value="">
+          <em>None</em>
+        </MenuItem>
+        {/* </Link> */}
 
-        <Link to="/video" style={styleOption}>
-          <VideocamIcon />
-          <MenuItem value="video">Video</MenuItem>
-        </Link>
-        <Link to="/recipe" style={styleOption}>
-          <Recipe />
-          <MenuItem value="/recipe">Recipe</MenuItem>
-        </Link>
-        <Link to="/product" style={styleOption}>
-          <LocalOfferIcon />
-          <MenuItem value="product" style={styleOption}>
+        <MenuItem value="video">
+          <Link to="/video" style={styleOption}>
+            <VideocamIcon />
+            Video
+          </Link>
+        </MenuItem>
+        <MenuItem value="recipe">
+          <Link to="/recipe" style={styleOption}>
+            <Recipet />
+            Recipe
+          </Link>
+        </MenuItem>
+        <MenuItem value="product" style={styleOption}>
+          <Link to="/product" style={styleOption}>
+            <LocalOfferIcon />
             Product
-          </MenuItem>
-        </Link>
-        <Link to="/website" style={styleOption}>
-          <LanguageIcon />
-          <MenuItem value="website">Website</MenuItem>
-        </Link>
+          </Link>
+        </MenuItem>
+        <MenuItem value="website">
+          <Link to="/website" style={styleOption}>
+            <LanguageIcon />
+            Website
+          </Link>
+        </MenuItem>
       </Select>
     </FormControl>
   );

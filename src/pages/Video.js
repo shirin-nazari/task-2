@@ -1,13 +1,28 @@
-import { Paper, Typography } from '@mui/material';
+import { Button, Paper, Typography } from '@mui/material';
 import React, { useId, useState } from 'react';
 import VideocamIcon from '@mui/icons-material/Videocam';
 import { Box } from '@mui/system';
 import TextFields from '../component/TextFields';
-
+const mockData = {
+  name: '',
+  videoDescription: '',
+  uploadDate: '',
+  duration: '',
+  thumbnailUrl: '',
+  contentURL: '',
+  embedURL: '',
+  seekToActionTargetURL: '',
+  publisher: '',
+  publisherLogoURL: '',
+  logoWidth: '',
+  logoHeight: '',
+};
 export default function Video() {
-  const [name, setName] = useState('');
-  const [videoDescription, setVideoDescription] = useState('');
-  const [uploadDate, setUploadDate] = useState('');
+  const [isTrue, setIsTrue] = useState(false);
+  const count = 0;
+  const [data, setData] = useState(mockData);
+  console.log(data);
+  // use id
   const id = useId();
   return (
     <Paper
@@ -38,35 +53,198 @@ export default function Video() {
           idInput={id}
           labelInput="Name"
           nameInput="name"
-          onChangeInput={(e) => setName(e.target.value)}
+          onChangeInput={(e) => {
+            const { name, value } = e.target;
+            setData({ ...data, [name]: value });
+          }}
           required
           typeInput="text"
-          valueInput={name}
           styleInput={{ width: '25vw', padding: 1 }}
           variantStyle="standard"
         />
         <TextFields
           idInput={id}
           labelInput="Video's description"
-          nameInput="Video's description"
-          onChangeInput={(e) => setVideoDescription(e.target.value)}
+          nameInput="videoDescription"
+          onChangeInput={(e) => {
+            const { name, value } = e.target;
+            setData({ ...data, [name]: value });
+          }}
           required
-          typeInput="text"
-          valueInput={videoDescription}
-          styleInput={{ width: '25vw', padding: 4, margin: 2, height: '40vh' }}
+          typeInput="textarea"
+          styleInput={{ width: '25vw', padding: 4, margin: 2 }}
           variantStyle="standard"
+          multiline
+          rowsInput={12}
         />
         <TextFields
           idInput={id}
           labelInput="Upload date"
-          nameInput="upload date"
-          onChangeInput={(e) => setUploadDate(e.target.value)}
+          nameInput="uploadDate"
+          onChangeInput={(e) => {
+            const { name, value } = e.target;
+            setData({ ...data, [name]: value });
+          }}
           required
           typeInput="date"
-          valueInput={uploadDate}
           styleInput={{ width: '10vw' }}
           variantStyle="standard"
           placeholderInput="upload Date"
+        />
+        <TextFields
+          idInput={id}
+          labelInput="Minutes"
+          nameInput=" duration"
+          onChangeInput={(e) => {
+            const { name, value } = e.target;
+            setData({ ...data, [name]: value });
+          }}
+          required
+          typeInput="number"
+          styleInput={{ width: '10vw', padding: 2 }}
+          variantStyle="standard"
+        />
+        <TextFields
+          idInput={id}
+          labelInput="Second"
+          nameInput=" duration"
+          onChangeInput={(e) => {
+            const { name, value } = e.target;
+            setData({ ...data, [name]: value });
+          }}
+          required
+          typeInput="number"
+          styleInput={{ width: '10vw', padding: 2 }}
+          variantStyle="standard"
+        />
+        <TextFields
+          idInput={id}
+          labelInput={`Thumbnail URL #${count + 1}`}
+          // labelInput="Thumbnail URL #1"
+          nameInput="thumbnailUrl"
+          onChangeInput={(e) => {
+            const { name, value } = e.target;
+            setData({ ...data, [name]: value });
+          }}
+          required
+          typeInput="url"
+          styleInput={{ width: '50vw', padding: 2 }}
+          variantStyle="standard"
+        />
+        {isTrue && (
+          <TextFields
+            idInput={id}
+            labelInput={`Thumbnail URL #${count}`}
+            nameInput="  thumbnailUrl"
+            onChangeInput={(e) => {
+              const { name, value } = e.target;
+              setData({ ...data, [name]: value });
+            }}
+            required
+            typeInput="url"
+            styleInput={{ width: '50vw', padding: 2 }}
+            variantStyle="standard"
+          />
+        )}
+        <Button
+          variant="contained"
+          onClick={(e) => {
+            setIsTrue(true);
+            count += 1;
+          }}
+        >
+          +IMAGE
+        </Button>
+        <TextFields
+          idInput={id}
+          labelInput="Content URL"
+          nameInput=" contentURL"
+          onChangeInput={(e) => {
+            const { name, value } = e.target;
+            setData({ ...data, [name]: value });
+          }}
+          required
+          typeInput="url"
+          styleInput={{ width: '10vw', padding: 2 }}
+          variantStyle="standard"
+        />
+        <TextFields
+          idInput={id}
+          labelInput="Embed URL"
+          nameInput="embedURL"
+          onChangeInput={(e) => {
+            const { name, value } = e.target;
+            setData({ ...data, [name]: value });
+          }}
+          required
+          typeInput="url"
+          styleInput={{ width: '10vw', padding: 2 }}
+          variantStyle="standard"
+        />
+        <TextFields
+          idInput={id}
+          labelInput="SeekToAction Target URL"
+          nameInput="seekToActionTargetURL"
+          onChangeInput={(e) => {
+            const { name, value } = e.target;
+            setData({ ...data, [name]: value });
+          }}
+          required
+          typeInput="url"
+          styleInput={{ width: '50vw', padding: 2 }}
+          variantStyle="standard"
+        />
+        <TextFields
+          idInput={id}
+          labelInput="Publisher"
+          nameInput="publisher"
+          onChangeInput={(e) => {
+            const { name, value } = e.target;
+            setData({ ...data, [name]: value });
+          }}
+          required
+          typeInput="url"
+          styleInput={{ width: '10vw', padding: 2 }}
+          variantStyle="standard"
+        />
+        <TextFields
+          idInput={id}
+          labelInput="Publisher logo URL"
+          nameInput=" publisherLogoURL"
+          onChangeInput={(e) => {
+            const { name, value } = e.target;
+            setData({ ...data, [name]: value });
+          }}
+          required
+          typeInput="url"
+          styleInput={{ width: '10vw', padding: 2 }}
+          variantStyle="standard"
+        />
+        <TextFields
+          idInput={id}
+          labelInput="Logo width (≤ 600px)"
+          nameInput="logoWidth"
+          onChangeInput={(e) => {
+            const { name, value } = e.target;
+            setData({ ...data, [name]: value });
+          }}
+          required
+          typeInput="number"
+          styleInput={{ width: '10vw', padding: 2 }}
+          variantStyle="standard"
+        />
+        <TextFields
+          idInput={id}
+          labelInput="Logo height (≤ 60px)"
+          nameInput="logoHeight"
+          onChangeInput={(e) => {
+            const { name, value } = e.target;
+            setData({ ...data, [name]: value });
+          }}
+          required
+          typeInput="number"
+          styleInput={{ width: '10vw', padding: 2 }}
+          variantStyle="standard"
         />
         {/* <span>{name}</span>
         <p>{videoDescription}</p> */}

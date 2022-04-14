@@ -12,6 +12,7 @@ export default function TextFields({
   styleInput,
   variantStyle,
   placeholderInput,
+  rowsInput,
 }) {
   return (
     <TextField
@@ -24,6 +25,7 @@ export default function TextFields({
       onChange={onChangeInput}
       variant={variantStyle}
       placeholder={placeholderInput}
+      rows={rowsInput}
     />
   );
 }
