@@ -13,9 +13,11 @@ export default function TextFields({
   variantStyle,
   placeholderInput,
   rowsInput,
+  minNumber,
 }) {
   return (
     <TextField
+      min={minNumber}
       name={nameInput}
       type={typeInput}
       value={valueInput}

@@ -57,11 +57,11 @@ export default function SelectFields({
         id={idInput}
         placeholder="Which Schema.org markup would you like to create?"
       >
-        {/* <Link to="/" style={styleOption}> */}
         <MenuItem value="">
-          <em>None</em>
+          <Link to="/" style={styleOption}>
+            <em>None</em>
+          </Link>
         </MenuItem>
-        {/* </Link> */}
 
         <MenuItem value="video">
           <Link to="/video" style={styleOption}>

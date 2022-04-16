@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Form from './pages/Form';
+
 import Home from './pages/Home';
 import Website from './pages/Website';
 import Video from './pages/Video';
@@ -10,8 +10,8 @@ function App() {
     <BrowserRouter>
       <Home />
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
-        <Route path="/form" element={<Form />} />
+        <Route path="/" element={<Home />} />
+
         <Route path="/website" element={<Website />} />
         <Route path="/video" element={<Video />} />
         <Route path="/recipe" element={<Recipe />} />
