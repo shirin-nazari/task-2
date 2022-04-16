@@ -5,7 +5,7 @@ import TextFields from './TextFields';
 import { useDispatch } from 'react-redux';
 import { addData } from '../redux/features/slice/getDataSlice';
 
-const mockData = {
+const initialDataVideo = {
   name: '',
   videoDescription: '',
   uploadDate: '',
@@ -22,7 +22,7 @@ const mockData = {
 
 export default function FormVideo() {
   const counter = [0, 1, 2, 3, 4, 5];
-  const [data, setData] = useState(mockData);
+  const [data, setData] = useState(initialDataVideo);
   const [count, setCount] = useState(0);
   const dispatch = useDispatch();
   // use id
@@ -159,6 +159,7 @@ export default function FormVideo() {
       />
       <TextFields
         idInput={id}
+        fullWidth
         labelInput={`Thumbnail URL #${1}`}
         // labelInput="Thumbnail URL #1"
         nameInput="thumbnailUrl"
@@ -168,7 +169,7 @@ export default function FormVideo() {
         }}
         required
         typeInput="url"
-        styleInput={{ width: '50vw', padding: 2 }}
+        styleInput={{ width: '55vw', padding: 2 }}
         variantStyle="standard"
       />
 

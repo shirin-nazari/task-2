@@ -4,14 +4,16 @@ import TextFields from './TextFields';
 import { useDispatch } from 'react-redux';
 import { addData } from '../redux/features/slice/getDataSlice';
 
-const initialDataWebSite = {
+const initialDataProduct = {
   name: '',
-  url: '',
-  target: '',
+  image: '',
+  brand: '',
+  description: '',
 };
-export default function FormWebSite() {
+
+export default function FormProduct() {
   const counter = [0, 1, 2, 3, 4, 5];
-  const [data, setData] = useState(initialDataWebSite);
+  const [data, setData] = useState(initialDataProduct);
   const [count, setCount] = useState(0);
   const dispatch = useDispatch();
   // use id
@@ -22,7 +24,7 @@ export default function FormWebSite() {
     <Box sx={{ margin: 5, width: { lg: '60vw', xs: '40vw', md: '70vw' } }}>
       <TextFields
         idInput={id}
-        labelInput="Website's Name"
+        labelInput="Name"
         nameInput="name"
         onChangeInput={(e) => {
           const { name, value } = e.target;
@@ -35,8 +37,34 @@ export default function FormWebSite() {
       />
       <TextFields
         idInput={id}
-        labelInput="URL"
-        nameInput="url"
+        labelInput="Image URL"
+        nameInput="image"
+        onChangeInput={(e) => {
+          const { name, value } = e.target;
+          setData({ ...data, [name]: value });
+        }}
+        required
+        typeInput="text"
+        styleInput={{ width: '25vw', padding: 1 }}
+        variantStyle="standard"
+      />
+      <TextFields
+        idInput={id}
+        labelInput="Brand"
+        nameInput="brand"
+        onChangeInput={(e) => {
+          const { name, value } = e.target;
+          setData({ ...data, [name]: value });
+        }}
+        required
+        typeInput="text"
+        styleInput={{ width: '25vw', padding: 1 }}
+        variantStyle="standard"
+      />
+      <TextFields
+        idInput={id}
+        labelInput="Product's description"
+        nameInput="description"
         onChangeInput={(e) => {
           const { name, value } = e.target;
           setData({ ...data, [name]: value });
@@ -47,20 +75,6 @@ export default function FormWebSite() {
         variantStyle="standard"
         multiline
         rowsInput={12}
-      />
-      <TextFields
-        idInput={id}
-        fullWidth
-        labelInput="Internal site search URL (e.g. https://example.com/search?q=)"
-        nameInput="target"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
-        required
-        typeInput="url"
-        styleInput={{ width: '55vw', padding: 2 }}
-        variantStyle="standard"
       />
     </Box>
   );

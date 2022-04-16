@@ -4,6 +4,8 @@ import VideocamIcon from '@mui/icons-material/Videocam';
 import { Box } from '@mui/system';
 import TextFields from '../component/TextFields';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
+import FormProduct from '../component/FormProduct';
+import ShowJsonCodeProduct from '../component/ShowJsonCodeProduct';
 
 export default function Product() {
   const [name, setName] = useState('');
@@ -17,7 +19,7 @@ export default function Product() {
   return (
     <Paper
       sx={{
-        display: { xs: 'block', md: 'flex', lg: 'block' },
+        display: { xs: 'block', md: 'flex', lg: 'flex' },
         justifyContent: 'space-between',
         // width: '80vw',
         width: { lg: '80vw', xs: '40vw', md: '70vw' },
@@ -25,93 +27,34 @@ export default function Product() {
         padding: 5,
       }}
     >
+      <Box>
+        <Box
+          sx={{
+            display: 'flex',
+            borderBottom: '1px solid #DFDFDF',
+            paddingBottom: 2,
+            width: { lg: '50vw', xs: '40vw', md: '70vw' },
+          }}
+        >
+          <LocalOfferIcon sx={{ fontSize: '40px', paddingRight: 1 }} />
+          <Typography variant="h4" component="h1">
+            Product
+          </Typography>
+        </Box>
+        <Box>
+          <FormProduct />
+        </Box>
+      </Box>
       <Box
         sx={{
+          width: '30vw',
           display: 'flex',
-          borderBottom: '1px solid #DFDFDF',
-          paddingBottom: 2,
-          width: '80vw',
+          flexDirection: 'column',
+          // marginRight: 50,
+          // marginTop: 8,
         }}
       >
-        <LocalOfferIcon sx={{ fontSize: '40px', paddingRight: 1 }} />
-        <Typography variant="h4" component="h1">
-          Product
-        </Typography>
-      </Box>
-      <Box sx={{ margin: 5 }}>
-        <TextFields
-          idInput={id}
-          labelInput="Name"
-          nameInput="name"
-          onChangeInput={(e) => setName(e.target.value)}
-          required
-          typeInput="text"
-          valueInput={name}
-          styleInput={{ width: '25vw', padding: 1 }}
-          variantStyle="standard"
-        />
-        <TextFields
-          idInput={id}
-          labelInput="Video's description"
-          nameInput="Video's description"
-          onChangeInput={(e) => setVideoDescription(e.target.value)}
-          required
-          typeInput="textarea"
-          valueInput={videoDescription}
-          styleInput={{ width: '25vw', padding: 4, margin: 2 }}
-          variantStyle="standard"
-          multiline
-          rowsInput={12}
-        />
-        <TextFields
-          idInput={id}
-          labelInput="Upload date"
-          nameInput="upload date"
-          onChangeInput={(e) => setUploadDate(e.target.value)}
-          required
-          typeInput="date"
-          valueInput={uploadDate}
-          styleInput={{ width: '10vw' }}
-          variantStyle="standard"
-          placeholderInput="upload Date"
-        />
-        <TextFields
-          idInput={id}
-          labelInput="Minutes"
-          nameInput="minutes"
-          onChangeInput={(e) => setMinutes(e.target.value)}
-          required
-          typeInput="number"
-          valueInput={minutes}
-          styleInput={{ width: '10vw', padding: 2 }}
-          variantStyle="standard"
-        />
-        <TextFields
-          idInput={id}
-          labelInput="Second"
-          nameInput="second"
-          onChangeInput={(e) => setSecond(e.target.value)}
-          required
-          typeInput="number"
-          valueInput={second}
-          styleInput={{ width: '10vw', padding: 2 }}
-          variantStyle="standard"
-        />
-        <TextFields
-          idInput={id}
-          labelInput="Thumbnail URL #1"
-          nameInput="Thumbnail URL #1"
-          onChangeInput={(e) => setThumbnailUrl(e.target.value)}
-          required
-          typeInput="url"
-          valueInput={thumbnailUrl}
-          styleInput={{ width: '50vw', padding: 2 }}
-          variantStyle="standard"
-        />
-
-        {/* <span>{name}</span>
-        <p>{videoDescription}</p> */}
-        {/* <span>{uploadDate}</span> */}
+        <ShowJsonCodeProduct />
       </Box>
     </Paper>
   );

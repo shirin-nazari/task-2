@@ -4,14 +4,15 @@ import TextFields from './TextFields';
 import { useDispatch } from 'react-redux';
 import { addData } from '../redux/features/slice/getDataSlice';
 
-const initialDataWebSite = {
+const initialDataRecipe = {
   name: '',
-  url: '',
-  target: '',
+  description: '',
+  Keywords: '',
+  image: '',
 };
-export default function FormWebSite() {
+export default function FormRecipe() {
   const counter = [0, 1, 2, 3, 4, 5];
-  const [data, setData] = useState(initialDataWebSite);
+  const [data, setData] = useState(initialDataRecipe);
   const [count, setCount] = useState(0);
   const dispatch = useDispatch();
   // use id
@@ -35,8 +36,8 @@ export default function FormWebSite() {
       />
       <TextFields
         idInput={id}
-        labelInput="URL"
-        nameInput="url"
+        labelInput="Recipe's description"
+        nameInput="description"
         onChangeInput={(e) => {
           const { name, value } = e.target;
           setData({ ...data, [name]: value });
@@ -50,9 +51,22 @@ export default function FormWebSite() {
       />
       <TextFields
         idInput={id}
+        labelInput="Keywords"
+        nameInput="Keywords"
+        onChangeInput={(e) => {
+          const { name, value } = e.target;
+          setData({ ...data, [name]: value });
+        }}
+        required
+        typeInput="url"
+        styleInput={{ width: '25vw', padding: 2 }}
+        variantStyle="standard"
+      />
+      <TextFields
+        idInput={id}
         fullWidth
-        labelInput="Internal site search URL (e.g. https://example.com/search?q=)"
-        nameInput="target"
+        labelInput="Image URL #1"
+        nameInput="image"
         onChangeInput={(e) => {
           const { name, value } = e.target;
           setData({ ...data, [name]: value });

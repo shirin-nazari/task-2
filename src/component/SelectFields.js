@@ -57,36 +57,36 @@ export default function SelectFields({
         id={idInput}
         placeholder="Which Schema.org markup would you like to create?"
       >
-        <MenuItem value="">
-          <Link to="/" style={styleOption}>
+        <Link to="/" style={styleOption}>
+          <MenuItem value="" sx={{ width: '40vw' }}>
             <em>None</em>
-          </Link>
-        </MenuItem>
+          </MenuItem>
+        </Link>
 
-        <MenuItem value="video">
-          <Link to="/video" style={styleOption}>
+        <Link to="/video" style={styleOption}>
+          <MenuItem value="video" sx={{ width: '40vw' }}>
             <VideocamIcon />
             Video
-          </Link>
-        </MenuItem>
-        <MenuItem value="recipe">
-          <Link to="/recipe" style={styleOption}>
+          </MenuItem>
+        </Link>
+        <Link to="/recipe" style={styleOption}>
+          <MenuItem value="recipe" sx={{ width: '40vw' }}>
             <Recipet />
             Recipe
-          </Link>
-        </MenuItem>
-        <MenuItem value="product" style={styleOption}>
-          <Link to="/product" style={styleOption}>
+          </MenuItem>
+        </Link>
+        <Link to="/product" style={styleOption}>
+          <MenuItem value="product" style={styleOption} sx={{ width: '40vw' }}>
             <LocalOfferIcon />
             Product
-          </Link>
-        </MenuItem>
-        <MenuItem value="website">
-          <Link to="/website" style={styleOption}>
+          </MenuItem>
+        </Link>
+        <Link to="/website" style={styleOption}>
+          <MenuItem value="website" sx={{ width: '40vw' }}>
             <LanguageIcon />
             Website
-          </Link>
-        </MenuItem>
+          </MenuItem>
+        </Link>
       </Select>
     </FormControl>
   );
