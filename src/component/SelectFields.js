@@ -24,7 +24,6 @@ export default function SelectFields({
 
   const handleChange = (event) => {
     setWhichSchema(event.target.value);
-    console.log(event.target.value);
   };
 
   const handleClose = () => {
@@ -38,6 +37,7 @@ export default function SelectFields({
     color: 'black',
     textDecoration: 'none',
     display: 'flex',
+    width: '40vw',
   };
   return (
     <FormControl>
@@ -57,36 +57,36 @@ export default function SelectFields({
         id={idInput}
         placeholder="Which Schema.org markup would you like to create?"
       >
-        <Link to="/" style={styleOption}>
-          <MenuItem value="" sx={{ width: '40vw' }}>
+        <MenuItem value="" sx={{ width: '40vw' }}>
+          <Link to="/" style={styleOption}>
             <em>None</em>
-          </MenuItem>
-        </Link>
+          </Link>
+        </MenuItem>
 
-        <Link to="/video" style={styleOption}>
-          <MenuItem value="video" sx={{ width: '40vw' }}>
+        <MenuItem value="video" sx={{ width: '40vw' }}>
+          <Link to="/video" style={styleOption}>
             <VideocamIcon />
             Video
-          </MenuItem>
-        </Link>
-        <Link to="/recipe" style={styleOption}>
-          <MenuItem value="recipe" sx={{ width: '40vw' }}>
+          </Link>
+        </MenuItem>
+        <MenuItem value="recipe" sx={{ width: '40vw' }}>
+          <Link to="/recipe" style={styleOption}>
             <Recipet />
             Recipe
-          </MenuItem>
-        </Link>
-        <Link to="/product" style={styleOption}>
-          <MenuItem value="product" style={styleOption} sx={{ width: '40vw' }}>
+          </Link>
+        </MenuItem>
+        <MenuItem value="product" style={styleOption} sx={{ width: '40vw' }}>
+          <Link to="/product" style={styleOption}>
             <LocalOfferIcon />
             Product
-          </MenuItem>
-        </Link>
-        <Link to="/website" style={styleOption}>
-          <MenuItem value="website" sx={{ width: '40vw' }}>
+          </Link>
+        </MenuItem>
+        <MenuItem value="website" sx={{ width: '40vw' }}>
+          <Link to="/website" style={styleOption}>
             <LanguageIcon />
             Website
-          </MenuItem>
-        </Link>
+          </Link>
+        </MenuItem>
       </Select>
     </FormControl>
   );

@@ -19,8 +19,7 @@ export default function Recips() {
     <Paper
       sx={{
         display: { xs: 'block', md: 'flex', lg: 'flex' },
-        justifyContent: 'space-between',
-        // width: '80vw',
+
         width: { lg: '80vw', xs: '40vw', md: '70vw' },
         margin: '30px auto',
         padding: 5,
@@ -40,11 +39,17 @@ export default function Recips() {
             Recipet
           </Typography>
         </Box>
-        <Box sx={{ margin: 5 }}>
+        <Box>
           <FormRecipe />
         </Box>
       </Box>
-      <Box>
+      <Box
+        sx={{
+          width: '30vw',
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
         <ShowJsonCodeRecipe />
       </Box>
     </Paper>

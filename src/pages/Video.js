@@ -26,7 +26,6 @@ export default function Video() {
             display: 'flex',
             borderBottom: '1px solid #DFDFDF',
             paddingBottom: 2,
-            // width: '80vw',
           }}
         >
           <VideocamIcon sx={{ fontSize: '40px', paddingRight: 1 }} />

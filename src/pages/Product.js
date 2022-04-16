@@ -8,14 +8,6 @@ import FormProduct from '../component/FormProduct';
 import ShowJsonCodeProduct from '../component/ShowJsonCodeProduct';
 
 export default function Product() {
-  const [name, setName] = useState('');
-  const [videoDescription, setVideoDescription] = useState('');
-  const [uploadDate, setUploadDate] = useState('');
-  const [minutes, setMinutes] = useState('');
-  const [second, setSecond] = useState('');
-  const [thumbnailUrl, setThumbnailUrl] = useState('');
-
-  const id = useId();
   return (
     <Paper
       sx={{
@@ -33,7 +25,7 @@ export default function Product() {
             display: 'flex',
             borderBottom: '1px solid #DFDFDF',
             paddingBottom: 2,
-            width: { lg: '50vw', xs: '40vw', md: '70vw' },
+            width: { lg: '50vw', xs: '40vw', md: '45vw' },
           }}
         >
           <LocalOfferIcon sx={{ fontSize: '40px', paddingRight: 1 }} />
