@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 export default function ShowJsonCodeWebSite() {
   const data = useSelector((state) => state.data);
   return (
-    <Box>
+    <pre>
       <span>{`<script type="application/ld+json">`}</span>
       <Box sx={{ width: '13vw', flexDirection: 'column' }}>
         {JSON.stringify(data.data, null, '\t\n')}
@@ -14,6 +14,6 @@ export default function ShowJsonCodeWebSite() {
           ) */}
       </Box>
       <span>{`</script >`}</span>
-    </Box>
+    </pre>
   );
 }

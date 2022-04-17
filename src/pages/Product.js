@@ -6,6 +6,7 @@ import { Box } from '@mui/system';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import FormProduct from '../component/product/FormProduct';
 import ShowJsonCodeProduct from '../component/product/ShowJsonCodeProduct';
+import FormAndjson from '../component/product/FormAndjson';
 
 export default function Product() {
   return (
@@ -13,7 +14,7 @@ export default function Product() {
       sx={{
         display: { xs: 'block', md: 'flex', lg: 'flex' },
         justifyContent: 'space-between',
-        // width: '80vw',
+        flexDirection: 'column',
         width: { lg: '80vw', xs: '40vw', md: '70vw' },
         margin: '30px auto',
         padding: 5,
@@ -33,20 +34,9 @@ export default function Product() {
             Product
           </Typography>
         </Box>
-        <Box>
-          <FormProduct />
-        </Box>
       </Box>
-      <Box
-        sx={{
-          width: '30vw',
-          display: 'flex',
-          flexDirection: 'column',
-          // marginRight: 50,
-          // marginTop: 8,
-        }}
-      >
-        <ShowJsonCodeProduct />
+      <Box>
+        <FormAndjson />
       </Box>
     </Paper>
   );

@@ -40,7 +40,7 @@ export default function FormVideo() {
       }}
       required
       typeInput="url"
-      styleInput={{ width: '50vw', padding: 2 }}
+      styleInput={{ width: '40vw', padding: 2 }}
       variantStyle="standard"
     />
   );
@@ -89,8 +89,8 @@ export default function FormVideo() {
         }}
         required
         typeInput="text"
-        styleInput={{ width: '25vw', padding: 1 }}
-        variantStyle="standard"
+        styleInput={{ width: '25vw' }}
+        variantStyle="filled"
       />
       <TextFields
         idInput={id}
@@ -102,8 +102,8 @@ export default function FormVideo() {
         }}
         required
         typeInput="textarea"
-        styleInput={{ width: '25vw', padding: 4, margin: 2 }}
-        variantStyle="standard"
+        styleInput={{ width: '25vw', margin: 2 }}
+        variantStyle="filled"
         multiline
         rowsInput={12}
       />
@@ -118,7 +118,7 @@ export default function FormVideo() {
         required
         typeInput="date"
         styleInput={{ width: '8vw' }}
-        variantStyle="standard"
+        variantStyle="filled"
         placeholderInput="upload Date"
       />
       <TextFields
@@ -137,7 +137,7 @@ export default function FormVideo() {
         typeInput="number"
         minNumber="0"
         styleInput={{ width: '8vw', padding: 1 }}
-        variantStyle="standard"
+        variantStyle="filled"
       />
       <TextFields
         idInput={id}
@@ -155,7 +155,7 @@ export default function FormVideo() {
         typeInput="number"
         minNumber="0"
         styleInput={{ width: '8vw', padding: 1 }}
-        variantStyle="standard"
+        variantStyle="filled"
       />
       <TextFields
         idInput={id}
@@ -169,8 +169,8 @@ export default function FormVideo() {
         }}
         required
         typeInput="url"
-        styleInput={{ width: '55vw', padding: 2 }}
-        variantStyle="standard"
+        styleInput={{ width: '45vw', margin: 2 }}
+        variantStyle="filled"
       />
 
       <Button variant="contained" onClick={() => addInput()}>
@@ -188,7 +188,7 @@ export default function FormVideo() {
         required
         typeInput="url"
         styleInput={{ width: '10vw', padding: 2 }}
-        variantStyle="standard"
+        variantStyle="filled"
       />
       <TextFields
         idInput={id}
@@ -201,7 +201,7 @@ export default function FormVideo() {
         required
         typeInput="url"
         styleInput={{ width: '10vw', padding: 2 }}
-        variantStyle="standard"
+        variantStyle="filled"
       />
       <TextFields
         idInput={id}
@@ -213,8 +213,8 @@ export default function FormVideo() {
         }}
         required
         typeInput="url"
-        styleInput={{ width: '50vw', padding: 2 }}
-        variantStyle="standard"
+        styleInput={{ width: '40vw' }}
+        variantStyle="filled"
       />
       <TextFields
         idInput={id}
@@ -227,7 +227,7 @@ export default function FormVideo() {
         required
         typeInput="url"
         styleInput={{ width: '10vw', padding: 2 }}
-        variantStyle="standard"
+        variantStyle="filled"
       />
       <TextFields
         idInput={id}
@@ -240,7 +240,7 @@ export default function FormVideo() {
         required
         typeInput="url"
         styleInput={{ width: '10vw', padding: 2 }}
-        variantStyle="standard"
+        variantStyle="filled"
       />
       <TextFields
         idInput={id}
@@ -253,7 +253,7 @@ export default function FormVideo() {
         required
         typeInput="number"
         styleInput={{ width: '10vw', padding: 2 }}
-        variantStyle="standard"
+        variantStyle="filled"
       />
       <TextFields
         idInput={id}
@@ -266,7 +266,7 @@ export default function FormVideo() {
         required
         typeInput="number"
         styleInput={{ width: '10vw', padding: 2 }}
-        variantStyle="standard"
+        variantStyle="filled"
       />
     </Box>
   );

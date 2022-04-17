@@ -32,7 +32,7 @@ export default function FormRecipe() {
         required
         typeInput="text"
         styleInput={{ width: '25vw', padding: 1 }}
-        variantStyle="standard"
+        variantStyle="filled"
       />
       <TextFields
         idInput={id}
@@ -45,7 +45,7 @@ export default function FormRecipe() {
         required
         typeInput="textarea"
         styleInput={{ width: '25vw', padding: 4, margin: 2 }}
-        variantStyle="standard"
+        variantStyle="filled"
         multiline
         rowsInput={12}
       />
@@ -60,7 +60,7 @@ export default function FormRecipe() {
         required
         typeInput="url"
         styleInput={{ width: '25vw', padding: 2 }}
-        variantStyle="standard"
+        variantStyle="filled"
       />
       <TextFields
         idInput={id}
@@ -74,7 +74,7 @@ export default function FormRecipe() {
         required
         typeInput="url"
         styleInput={{ width: '55vw', padding: 2 }}
-        variantStyle="standard"
+        variantStyle="filled"
       />
     </Box>
   );

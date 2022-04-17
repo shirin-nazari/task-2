@@ -21,7 +21,7 @@ export default function FormWebSite() {
     <Box sx={{ margin: 5, width: { lg: '60vw', xs: '40vw', md: '70vw' } }}>
       <TextFields
         idInput={id}
-        labelInput="Website's Name"
+        labelInput="نام وب سایت"
         nameInput="name"
         onChangeInput={(e) => {
           const { name, value } = e.target;
@@ -30,11 +30,11 @@ export default function FormWebSite() {
         required
         typeInput="text"
         styleInput={{ width: '25vw', padding: 1 }}
-        variantStyle="standard"
+        variantStyle="filled"
       />
       <TextFields
         idInput={id}
-        labelInput="URL"
+        labelInput="آدرس وب سایت"
         nameInput="url"
         onChangeInput={(e) => {
           const { name, value } = e.target;
@@ -42,8 +42,8 @@ export default function FormWebSite() {
         }}
         required
         typeInput="textarea"
-        styleInput={{ width: '25vw', padding: 4, margin: 2 }}
-        variantStyle="standard"
+        styleInput={{ width: '25vw', padding: 1 }}
+        variantStyle="filled"
         multiline
         rowsInput={12}
       />
@@ -58,8 +58,8 @@ export default function FormWebSite() {
         }}
         required
         typeInput="url"
-        styleInput={{ width: '55vw', padding: 2 }}
-        variantStyle="standard"
+        styleInput={{ width: '50vw', margin: 2, padding: 1 }}
+        variantStyle="filled"
       />
     </Box>
   );

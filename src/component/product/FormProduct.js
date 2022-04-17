@@ -33,7 +33,7 @@ export default function FormProduct() {
         required
         typeInput="text"
         styleInput={{ width: '25vw', padding: 1 }}
-        variantStyle="standard"
+        variantStyle="filled"
       />
       <TextFields
         idInput={id}
@@ -46,7 +46,7 @@ export default function FormProduct() {
         required
         typeInput="text"
         styleInput={{ width: '25vw', padding: 1 }}
-        variantStyle="standard"
+        variantStyle="filled"
       />
       <TextFields
         idInput={id}
@@ -59,7 +59,7 @@ export default function FormProduct() {
         required
         typeInput="text"
         styleInput={{ width: '25vw', padding: 1 }}
-        variantStyle="standard"
+        variantStyle="filled"
       />
       <TextFields
         idInput={id}
@@ -72,7 +72,7 @@ export default function FormProduct() {
         required
         typeInput="textarea"
         styleInput={{ width: '25vw', padding: 4, margin: 2 }}
-        variantStyle="standard"
+        variantStyle="filled"
         multiline
         rowsInput={12}
       />

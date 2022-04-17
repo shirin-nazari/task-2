@@ -2,9 +2,7 @@ import { Paper, Typography } from '@mui/material';
 import React from 'react';
 import VideocamIcon from '@mui/icons-material/Videocam';
 import { Box } from '@mui/system';
-
-import FormVideo from '../component/video/FormVideo';
-import ShowJsonCodeVideo from '../component/video/ShowJsonCodeVideo';
+import FormAndJson from '../component/video/FormAndJson';
 
 export default function Video() {
   // use id
@@ -14,6 +12,7 @@ export default function Video() {
       sx={{
         display: { xs: 'block', md: 'flex', lg: 'flex' },
         // justifyContent: 'space-between',
+        flexDirection: 'column',
         width: { lg: '80vw', xs: '40vw', md: '70vw' },
         margin: '30px auto',
         padding: 5,
@@ -33,21 +32,9 @@ export default function Video() {
             Video
           </Typography>
         </Box>
-        <Box>
-          <FormVideo />
-        </Box>
       </Box>
-
-      <Box
-        sx={{
-          width: '30vw',
-          display: 'flex',
-          flexDirection: 'column',
-          // marginRight: 50,
-          // marginTop: 8,
-        }}
-      >
-        <ShowJsonCodeVideo />
+      <Box>
+        <FormAndJson />
       </Box>
     </Paper>
   );

@@ -6,12 +6,13 @@ import { Box } from '@mui/system';
 import Recipet from '@mui/icons-material/Receipt';
 import FormRecipe from '../component/recipe/FormRecipe';
 import ShowJsonCodeRecipe from '../component/recipe/ShowJsonCodeRecipe';
+import FormAndjson from '../component/recipe/FormAndjson';
 export default function Recips() {
   return (
     <Paper
       sx={{
         display: { xs: 'block', md: 'flex', lg: 'flex' },
-
+        flexDirection: 'column',
         width: { lg: '80vw', xs: '40vw', md: '70vw' },
         margin: '30px auto',
         padding: 5,
@@ -31,18 +32,9 @@ export default function Recips() {
             Recipet
           </Typography>
         </Box>
-        <Box>
-          <FormRecipe />
-        </Box>
       </Box>
-      <Box
-        sx={{
-          width: '30vw',
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-      >
-        <ShowJsonCodeRecipe />
+      <Box>
+        <FormAndjson />
       </Box>
     </Paper>
   );
