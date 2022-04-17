@@ -3,8 +3,8 @@ import React from 'react';
 import VideocamIcon from '@mui/icons-material/Videocam';
 import { Box } from '@mui/system';
 
-import FormVideo from '../component/FormVideo';
-import ShowJsonCodeVideo from '../component/ShowJsonCodeVideo';
+import FormVideo from '../component/video/FormVideo';
+import ShowJsonCodeVideo from '../component/video/ShowJsonCodeVideo';
 
 export default function Video() {
   // use id

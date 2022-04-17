@@ -1,20 +1,12 @@
 import { Paper, Typography } from '@mui/material';
-import React, { useId, useState } from 'react';
-import VideocamIcon from '@mui/icons-material/Videocam';
-import { Box } from '@mui/system';
-import TextFields from '../component/TextFields';
-import Recipet from '@mui/icons-material/Receipt';
-import FormRecipe from '../component/FormRecipe';
-import ShowJsonCodeRecipe from '../component/ShowJsonCodeRecipe';
-export default function Recips() {
-  const [name, setName] = useState('');
-  const [videoDescription, setVideoDescription] = useState('');
-  const [uploadDate, setUploadDate] = useState('');
-  const [minutes, setMinutes] = useState('');
-  const [second, setSecond] = useState('');
-  const [thumbnailUrl, setThumbnailUrl] = useState('');
+import React from 'react';
 
-  const id = useId();
+import { Box } from '@mui/system';
+
+import Recipet from '@mui/icons-material/Receipt';
+import FormRecipe from '../component/recipe/FormRecipe';
+import ShowJsonCodeRecipe from '../component/recipe/ShowJsonCodeRecipe';
+export default function Recips() {
   return (
     <Paper
       sx={{

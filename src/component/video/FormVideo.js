@@ -1,9 +1,9 @@
 import { Button } from '@mui/material';
 import React, { useId, useState } from 'react';
 import { Box } from '@mui/system';
-import TextFields from './TextFields';
+import TextFields from '../TextFields';
 import { useDispatch } from 'react-redux';
-import { addData } from '../redux/features/slice/getDataSlice';
+import { addData } from '../../redux/features/slice/getDataSlice';
 
 const initialDataVideo = {
   name: '',

@@ -8,6 +8,9 @@ import LanguageIcon from '@mui/icons-material/Language';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import Recipet from '@mui/icons-material/Receipt';
 import FormControl from '@mui/material/FormControl';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
+import StoreIcon from '@mui/icons-material/Store';
 
 export default function SelectFields({
   onChangeInput,
@@ -62,7 +65,24 @@ export default function SelectFields({
             <em>None</em>
           </Link>
         </MenuItem>
-
+        <MenuItem value="How-to" sx={{ width: '40vw' }}>
+          <Link to="/How-to" style={styleOption}>
+            <FormatListNumberedIcon />
+            How-to
+          </Link>
+        </MenuItem>
+        <MenuItem value="FAQPage" sx={{ width: '40vw' }}>
+          <Link to="/FAQ" style={styleOption}>
+            <HelpOutlineIcon />
+            FAQ Page
+          </Link>
+        </MenuItem>
+        <MenuItem value="LocalBusiness" sx={{ width: '40vw' }}>
+          <Link to="/LocalBusiness" style={styleOption}>
+            <StoreIcon />
+            Local Business
+          </Link>
+        </MenuItem>
         <MenuItem value="video" sx={{ width: '40vw' }}>
           <Link to="/video" style={styleOption}>
             <VideocamIcon />

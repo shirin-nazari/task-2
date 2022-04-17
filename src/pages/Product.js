@@ -1,11 +1,11 @@
 import { Paper, Typography } from '@mui/material';
-import React, { useId, useState } from 'react';
-import VideocamIcon from '@mui/icons-material/Videocam';
+import React from 'react';
+
 import { Box } from '@mui/system';
-import TextFields from '../component/TextFields';
+
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
-import FormProduct from '../component/FormProduct';
-import ShowJsonCodeProduct from '../component/ShowJsonCodeProduct';
+import FormProduct from '../component/product/FormProduct';
+import ShowJsonCodeProduct from '../component/product/ShowJsonCodeProduct';
 
 export default function Product() {
   return (

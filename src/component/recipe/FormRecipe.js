@@ -1,19 +1,18 @@
 import React, { useId, useState } from 'react';
 import { Box } from '@mui/system';
-import TextFields from './TextFields';
+import TextFields from '../TextFields';
 import { useDispatch } from 'react-redux';
-import { addData } from '../redux/features/slice/getDataSlice';
+import { addData } from '../../redux/features/slice/getDataSlice';
 
-const initialDataProduct = {
+const initialDataRecipe = {
   name: '',
-  image: '',
-  brand: '',
   description: '',
+  Keywords: '',
+  image: '',
 };
-
-export default function FormProduct() {
+export default function FormRecipe() {
   const counter = [0, 1, 2, 3, 4, 5];
-  const [data, setData] = useState(initialDataProduct);
+  const [data, setData] = useState(initialDataRecipe);
   const [count, setCount] = useState(0);
   const dispatch = useDispatch();
   // use id
@@ -24,7 +23,7 @@ export default function FormProduct() {
     <Box sx={{ margin: 5, width: { lg: '60vw', xs: '40vw', md: '70vw' } }}>
       <TextFields
         idInput={id}
-        labelInput="Name"
+        labelInput="Website's Name"
         nameInput="name"
         onChangeInput={(e) => {
           const { name, value } = e.target;
@@ -37,33 +36,7 @@ export default function FormProduct() {
       />
       <TextFields
         idInput={id}
-        labelInput="Image URL"
-        nameInput="image"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
-        required
-        typeInput="text"
-        styleInput={{ width: '25vw', padding: 1 }}
-        variantStyle="standard"
-      />
-      <TextFields
-        idInput={id}
-        labelInput="Brand"
-        nameInput="brand"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
-        required
-        typeInput="text"
-        styleInput={{ width: '25vw', padding: 1 }}
-        variantStyle="standard"
-      />
-      <TextFields
-        idInput={id}
-        labelInput="Product's description"
+        labelInput="Recipe's description"
         nameInput="description"
         onChangeInput={(e) => {
           const { name, value } = e.target;
@@ -75,6 +48,33 @@ export default function FormProduct() {
         variantStyle="standard"
         multiline
         rowsInput={12}
+      />
+      <TextFields
+        idInput={id}
+        labelInput="Keywords"
+        nameInput="Keywords"
+        onChangeInput={(e) => {
+          const { name, value } = e.target;
+          setData({ ...data, [name]: value });
+        }}
+        required
+        typeInput="url"
+        styleInput={{ width: '25vw', padding: 2 }}
+        variantStyle="standard"
+      />
+      <TextFields
+        idInput={id}
+        fullWidth
+        labelInput="Image URL #1"
+        nameInput="image"
+        onChangeInput={(e) => {
+          const { name, value } = e.target;
+          setData({ ...data, [name]: value });
+        }}
+        required
+        typeInput="url"
+        styleInput={{ width: '55vw', padding: 2 }}
+        variantStyle="standard"
       />
     </Box>
   );

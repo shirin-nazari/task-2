@@ -3,8 +3,8 @@ import React, { useId, useState } from 'react';
 import { Box } from '@mui/system';
 
 import LanguageIcon from '@mui/icons-material/Language';
-import FormWebSite from '../component/FormWebSite';
-import ShowJsonCodeWebSite from '../component/ShowJsonCodeWebSite';
+import FormWebSite from '../component/webSite/FormWebSite';
+import ShowJsonCodeWebSite from '../component/webSite/ShowJsonCodeWebSite';
 
 export default function Website() {
   const id = useId();
