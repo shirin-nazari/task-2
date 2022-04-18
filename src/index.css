@@ -5,16 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #efefef;
+  background: #e9f3fe;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-@media screen and (max-width: 768px) {
-  .responsive {
-    flexwrap: wrap;
-  }
 }

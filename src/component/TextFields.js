@@ -13,19 +13,23 @@ export default function TextFields({
   variantStyle,
   placeholderInput,
   rowsInput,
+  minNumber,
+  errorInput,
 }) {
   return (
     <TextField
-      name={nameInput}
-      type={typeInput}
-      value={valueInput}
-      id={idInput}
-      sx={styleInput}
-      label={labelInput}
-      onChange={onChangeInput}
-      variant={variantStyle}
-      placeholder={placeholderInput}
-      rows={rowsInput}
+      error={errorInput && errorInput}
+      min={minNumber && minNumber}
+      name={nameInput && nameInput}
+      type={typeInput && typeInput}
+      value={valueInput && valueInput}
+      id={idInput && idInput}
+      sx={styleInput && styleInput}
+      label={labelInput && labelInput}
+      onChange={onChangeInput && onChangeInput}
+      variant={variantStyle && variantStyle}
+      placeholder={placeholderInput && placeholderInput}
+      rows={rowsInput && rowsInput}
     />
   );
 }

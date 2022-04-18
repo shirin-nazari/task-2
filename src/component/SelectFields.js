@@ -8,6 +8,9 @@ import LanguageIcon from '@mui/icons-material/Language';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import Recipet from '@mui/icons-material/Receipt';
 import FormControl from '@mui/material/FormControl';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
+import StoreIcon from '@mui/icons-material/Store';
 
 export default function SelectFields({
   onChangeInput,
@@ -24,7 +27,6 @@ export default function SelectFields({
 
   const handleChange = (event) => {
     setWhichSchema(event.target.value);
-    console.log(event.target.value);
   };
 
   const handleClose = () => {
@@ -38,6 +40,7 @@ export default function SelectFields({
     color: 'black',
     textDecoration: 'none',
     display: 'flex',
+    width: '40vw',
   };
   return (
     <FormControl>
@@ -57,31 +60,48 @@ export default function SelectFields({
         id={idInput}
         placeholder="Which Schema.org markup would you like to create?"
       >
-        {/* <Link to="/" style={styleOption}> */}
-        <MenuItem value="">
-          <em>None</em>
+        <MenuItem value="" sx={{ width: '40vw' }}>
+          <Link to="/" style={styleOption}>
+            <em>None</em>
+          </Link>
         </MenuItem>
-        {/* </Link> */}
-
-        <MenuItem value="video">
+        <MenuItem value="How-to" sx={{ width: '40vw' }}>
+          <Link to="/How-to" style={styleOption}>
+            <FormatListNumberedIcon />
+            How-to
+          </Link>
+        </MenuItem>
+        <MenuItem value="fAqPage" sx={{ width: '40vw' }}>
+          <Link to="/faq" style={styleOption}>
+            <HelpOutlineIcon />
+            FAQ Page
+          </Link>
+        </MenuItem>
+        <MenuItem value="LocalBusiness" sx={{ width: '40vw' }}>
+          <Link to="/LocalBusiness" style={styleOption}>
+            <StoreIcon />
+            Local Business
+          </Link>
+        </MenuItem>
+        <MenuItem value="video" sx={{ width: '40vw' }}>
           <Link to="/video" style={styleOption}>
             <VideocamIcon />
             Video
           </Link>
         </MenuItem>
-        <MenuItem value="recipe">
+        <MenuItem value="recipe" sx={{ width: '40vw' }}>
           <Link to="/recipe" style={styleOption}>
             <Recipet />
             Recipe
           </Link>
         </MenuItem>
-        <MenuItem value="product" style={styleOption}>
+        <MenuItem value="product" style={styleOption} sx={{ width: '40vw' }}>
           <Link to="/product" style={styleOption}>
             <LocalOfferIcon />
             Product
           </Link>
         </MenuItem>
-        <MenuItem value="website">
+        <MenuItem value="website" sx={{ width: '40vw' }}>
           <Link to="/website" style={styleOption}>
             <LanguageIcon />
             Website
