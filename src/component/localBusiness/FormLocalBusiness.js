@@ -3,15 +3,17 @@ import { Box } from '@mui/system';
 import TextFields from '../TextFields';
 import { useDispatch } from 'react-redux';
 import { addData } from '../../redux/features/slice/getDataSlice';
-import validUrl from 'valid-url';
-const initialDataWebSite = {
-  name: '',
-  url: '',
-  target: '',
-};
-export default function FormWebSite() {
-  const [data, setData] = useState(initialDataWebSite);
 
+const initialDataRecipe = {
+  name: '',
+  description: '',
+  Keywords: '',
+  image: '',
+};
+export default function FormRecipe() {
+  const counter = [0, 1, 2, 3, 4, 5];
+  const [data, setData] = useState(initialDataRecipe);
+  const [count, setCount] = useState(0);
   const dispatch = useDispatch();
   // use id
   const id = useId();
@@ -21,7 +23,7 @@ export default function FormWebSite() {
     <Box sx={{ margin: 5, width: { lg: '60vw', xs: '40vw', md: '70vw' } }}>
       <TextFields
         idInput={id}
-        labelInput="نام وب سایت"
+        labelInput="Website's Name"
         nameInput="name"
         onChangeInput={(e) => {
           const { name, value } = e.target;
@@ -34,33 +36,44 @@ export default function FormWebSite() {
       />
       <TextFields
         idInput={id}
-        labelInput="آدرس وب سایت"
-        nameInput="url"
+        labelInput="Recipe's description"
+        nameInput="description"
         onChangeInput={(e) => {
           const { name, value } = e.target;
           setData({ ...data, [name]: value });
         }}
         required
         typeInput="textarea"
-        styleInput={{ width: '25vw', padding: 1 }}
-        errorInput={validUrl.isUri(data.url) ? false : true}
+        styleInput={{ width: '25vw', padding: 4, margin: 2 }}
         variantStyle="filled"
         multiline
         rowsInput={12}
       />
-
       <TextFields
         idInput={id}
-        fullWidth
-        labelInput="Internal site search URL (e.g. https://example.com/search?q=)"
-        nameInput="target"
+        labelInput="Keywords"
+        nameInput="Keywords"
         onChangeInput={(e) => {
           const { name, value } = e.target;
           setData({ ...data, [name]: value });
         }}
         required
         typeInput="url"
-        styleInput={{ width: '50vw', margin: 2, padding: 1 }}
+        styleInput={{ width: '25vw', padding: 2 }}
+        variantStyle="filled"
+      />
+      <TextFields
+        idInput={id}
+        fullWidth
+        labelInput="Image URL #1"
+        nameInput="image"
+        onChangeInput={(e) => {
+          const { name, value } = e.target;
+          setData({ ...data, [name]: value });
+        }}
+        required
+        typeInput="url"
+        styleInput={{ width: '55vw', padding: 2 }}
         variantStyle="filled"
       />
     </Box>
