@@ -21,7 +21,7 @@ export default function Video() {
       <Box>
         <Box
           sx={{
-            width: { lg: '50vw', xs: '40vw', md: '45vw' },
+            width: { lg: '80vw', xs: '40vw', md: '45vw' },
             display: 'flex',
             borderBottom: '1px solid #DFDFDF',
             paddingBottom: 2,

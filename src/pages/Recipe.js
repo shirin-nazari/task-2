@@ -24,7 +24,7 @@ export default function Recips() {
             display: 'flex',
             borderBottom: '1px solid #DFDFDF',
             paddingBottom: 2,
-            width: { lg: '50vw', xs: '40vw', md: '45vw' },
+            width: { lg: '80vw', xs: '40vw', md: '45vw' },
           }}
         >
           <Recipet sx={{ fontSize: '40px', paddingRight: 1 }} />

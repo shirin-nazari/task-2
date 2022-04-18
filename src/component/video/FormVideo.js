@@ -107,9 +107,10 @@ export default function FormVideo() {
         multiline
         rowsInput={12}
       />
+
       <TextFields
         idInput={id}
-        labelInput="Upload date"
+        // labelInput="Upload date"
         nameInput="uploadDate"
         onChangeInput={(e) => {
           const { name, value } = e.target;

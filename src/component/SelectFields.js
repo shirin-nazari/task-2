@@ -71,8 +71,8 @@ export default function SelectFields({
             How-to
           </Link>
         </MenuItem>
-        <MenuItem value="FAQPage" sx={{ width: '40vw' }}>
-          <Link to="/FAQ" style={styleOption}>
+        <MenuItem value="fAqPage" sx={{ width: '40vw' }}>
+          <Link to="/faq" style={styleOption}>
             <HelpOutlineIcon />
             FAQ Page
           </Link>

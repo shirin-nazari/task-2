@@ -13,6 +13,7 @@ export default function FormAndJson() {
       }}
     >
       <Paper
+        variant="outlined"
         sx={{
           width: '30vw',
           display: 'flex',

@@ -3,7 +3,7 @@ import { Box } from '@mui/system';
 import TextFields from '../TextFields';
 import { useDispatch } from 'react-redux';
 import { addData } from '../../redux/features/slice/getDataSlice';
-
+import validUrl from 'valid-url';
 const initialDataWebSite = {
   name: '',
   url: '',
@@ -32,6 +32,7 @@ export default function FormWebSite() {
         styleInput={{ width: '25vw', padding: 1 }}
         variantStyle="filled"
       />
+      {/* { if(validUrl.isUrl(data.url))( */}
       <TextFields
         idInput={id}
         labelInput="آدرس وب سایت"
@@ -47,6 +48,11 @@ export default function FormWebSite() {
         multiline
         rowsInput={12}
       />
+      {/* )else (
+
+        )
+      } */}
+
       <TextFields
         idInput={id}
         fullWidth
