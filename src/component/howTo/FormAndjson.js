@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/system';
-import FormLocalBusiness from './FormLocalBusiness';
-import ShowJsonCodeLocal from './ShowJsonCodeLocal';
+import FormHowTo from './FormHowTo';
+import ShowJsonCodeHow from './ShowJsonCodeHow';
 import { Paper } from '@mui/material';
 export default function FormAndjson() {
   return (
@@ -22,10 +22,10 @@ export default function FormAndjson() {
           padding: 4,
         }}
       >
-        <ShowJsonCodeLocal />
+        <ShowJsonCodeHow />
       </Paper>
       <Box>
-        <FormLocalBusiness />
+        <FormHowTo />
       </Box>
     </Box>
   );

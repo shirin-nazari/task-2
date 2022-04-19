@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
 import Home from './pages/Home';
 import Website from './pages/Website';
 import Video from './pages/Video';
@@ -8,6 +7,7 @@ import Product from './pages/Product';
 import HowTo from './pages/HowTo';
 import Question from './pages/Question';
 import LocalBusiness from './pages/LocalBusiness';
+
 function App() {
   return (
     <BrowserRouter>

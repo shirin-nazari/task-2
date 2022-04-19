@@ -3,17 +3,15 @@ import { Box } from '@mui/system';
 import TextFields from '../TextFields';
 import { useDispatch } from 'react-redux';
 import { addData } from '../../redux/features/slice/getDataSlice';
+import { MenuItem, Select } from '@mui/material';
+import validUrl from 'valid-url';
 
-const initialDataRecipe = {
+const initialDataLocal = {
   name: '',
-  description: '',
-  Keywords: '',
-  image: '',
 };
 export default function FormRecipe() {
-  const counter = [0, 1, 2, 3, 4, 5];
-  const [data, setData] = useState(initialDataRecipe);
-  const [count, setCount] = useState(0);
+  const [data, setData] = useState(initialDataLocal);
+
   const dispatch = useDispatch();
   // use id
   const id = useId();
@@ -21,9 +19,37 @@ export default function FormRecipe() {
   dispatch(addData(data));
   return (
     <Box sx={{ margin: 5, width: { lg: '60vw', xs: '40vw', md: '70vw' } }}>
+      <Select
+        idInput={id}
+        label="LocalBusiness"
+        name="LocalBusiness"
+        onChange={(e) => {
+          const { name, value } = e.target;
+          setData({ ...data, [name]: value });
+        }}
+        required
+        sx={{ width: '25vw', padding: 1 }}
+        variant="filled"
+      >
+        <MenuItem value="LocalBusiness" sx={{ width: '25vw' }}>
+          Local Business
+        </MenuItem>
+        <MenuItem value="AnimalShelter" sx={{ width: '25vw' }}>
+          AnimalShelter
+        </MenuItem>
+        <MenuItem value="ArchiveOrganization" sx={{ width: '25vw' }}>
+          ArchiveOrganization
+        </MenuItem>
+        <MenuItem value="AutomotiveBusiness" sx={{ width: '25vw' }}>
+          AutomotiveBusiness
+        </MenuItem>
+        <MenuItem value="ChildCare" sx={{ width: '25vw' }}>
+          ChildCare
+        </MenuItem>
+      </Select>
       <TextFields
         idInput={id}
-        labelInput="Website's Name"
+        labelInput="نام"
         nameInput="name"
         onChangeInput={(e) => {
           const { name, value } = e.target;
@@ -31,19 +57,6 @@ export default function FormRecipe() {
         }}
         required
         typeInput="text"
-        styleInput={{ width: '25vw', padding: 1 }}
-        variantStyle="filled"
-      />
-      <TextFields
-        idInput={id}
-        labelInput="Recipe's description"
-        nameInput="description"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
-        required
-        typeInput="textarea"
         styleInput={{ width: '25vw', padding: 4, margin: 2 }}
         variantStyle="filled"
         multiline
@@ -51,8 +64,24 @@ export default function FormRecipe() {
       />
       <TextFields
         idInput={id}
-        labelInput="Keywords"
-        nameInput="Keywords"
+        labelInput="ادرس عکس"
+        nameInput="ImageURL"
+        onChangeInput={(e) => {
+          const { name, value } = e.target;
+          setData({ ...data, [name]: value });
+        }}
+        required
+        errorInput={validUrl.isUri(data.ImageURL) ? false : true}
+        typeInput="url"
+        styleInput={{ width: '25vw', padding: 2 }}
+        variantStyle="filled"
+      />
+      <TextFields
+        idInput={id}
+        fullWidth
+        labelInput="ادرس ایدی@"
+        nameInput="idURL"
+        errorInput={validUrl.isUri(data.idURL) ? false : true}
         onChangeInput={(e) => {
           const { name, value } = e.target;
           setData({ ...data, [name]: value });
@@ -65,15 +94,86 @@ export default function FormRecipe() {
       <TextFields
         idInput={id}
         fullWidth
-        labelInput="Image URL #1"
-        nameInput="image"
+        labelInput="آدرس"
+        nameInput="url"
+        errorInput={validUrl.isUri(data.url) ? false : true}
         onChangeInput={(e) => {
           const { name, value } = e.target;
           setData({ ...data, [name]: value });
         }}
         required
         typeInput="url"
-        styleInput={{ width: '55vw', padding: 2 }}
+        styleInput={{ width: '25vw', padding: 2 }}
+        variantStyle="filled"
+      />
+      <TextFields
+        idInput={id}
+        fullWidth
+        labelInput="شماره تلفن"
+        nameInput="Phone"
+        onChangeInput={(e) => {
+          const { name, value } = e.target;
+          setData({ ...data, [name]: value });
+        }}
+        required
+        typeInput="url"
+        styleInput={{ width: '25vw', padding: 2 }}
+        variantStyle="filled"
+      />
+      <TextFields
+        idInput={id}
+        fullWidth
+        labelInput="رنج قیمت"
+        nameInput="PriceRange"
+        onChangeInput={(e) => {
+          const { name, value } = e.target;
+          setData({ ...data, [name]: value });
+        }}
+        required
+        typeInput="url"
+        styleInput={{ width: '25vw', padding: 2 }}
+        variantStyle="filled"
+      />
+      <TextFields
+        idInput={id}
+        fullWidth
+        labelInput="خیابان"
+        nameInput="Street"
+        onChangeInput={(e) => {
+          const { name, value } = e.target;
+          setData({ ...data, [name]: value });
+        }}
+        required
+        typeInput="url"
+        styleInput={{ width: '25vw', padding: 2 }}
+        variantStyle="filled"
+      />
+      <TextFields
+        idInput={id}
+        fullWidth
+        labelInput="شهر"
+        nameInput="City"
+        onChangeInput={(e) => {
+          const { name, value } = e.target;
+          setData({ ...data, [name]: value });
+        }}
+        required
+        typeInput="url"
+        styleInput={{ width: '25vw', padding: 2 }}
+        variantStyle="filled"
+      />
+      <TextFields
+        idInput={id}
+        fullWidth
+        labelInput="Zip code"
+        nameInput="ZipCode"
+        onChangeInput={(e) => {
+          const { name, value } = e.target;
+          setData({ ...data, [name]: value });
+        }}
+        required
+        typeInput="url"
+        styleInput={{ width: '25vw', padding: 2 }}
         variantStyle="filled"
       />
     </Box>

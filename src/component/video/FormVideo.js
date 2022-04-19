@@ -5,78 +5,23 @@ import TextFields from '../TextFields';
 import { useDispatch } from 'react-redux';
 import { addData } from '../../redux/features/slice/getDataSlice';
 
-const initialDataVideo = {
+const initialValuesVideo = {
   name: '',
   videoDescription: '',
   uploadDate: '',
   duration: '',
   thumbnailUrl: '',
-  contentURL: '',
-  embedURL: '',
-  seekToActionTargetURL: '',
-  publisher: '',
-  publisherLogoURL: '',
-  logoWidth: '',
-  logoHeight: '',
 };
 
 export default function FormVideo() {
-  const counter = [0, 1, 2, 3, 4, 5];
-  const [data, setData] = useState(initialDataVideo);
-  const [count, setCount] = useState(0);
+  const [data, setData] = useState(initialValuesVideo);
+  const [inputList, setInputList] = useState(0);
   const dispatch = useDispatch();
   // use id
   const id = useId();
   // add data in store
   dispatch(addData(data));
-  const addInput = () => (
-    <TextFields
-      idInput={id}
-      labelInput={`Thumbnail URL #${1 + 1}`}
-      nameInput="  thumbnailUrl"
-      onChangeInput={(e) => {
-        const { name, value } = e.target;
-        setData({ ...data, [name]: value });
-      }}
-      required
-      typeInput="url"
-      styleInput={{ width: '40vw', padding: 2 }}
-      variantStyle="standard"
-    />
-  );
 
-  // counter.map((item) => (
-  //   <TextFields
-  //     idInput={id}
-  //     labelInput={`Thumbnail URL #${item}`}
-  //     nameInput="  thumbnailUrl"
-  //     onChangeInput={(e) => {
-  //       const { name, value } = e.target;
-  //       setData({ ...data, [name]: value });
-  //     }}
-  //     required
-  //     typeInput="url"
-  //     styleInput={{ width: '50vw', padding: 2 }}
-  //     variantStyle="standard"
-  //   />
-  // ));
-  // for (let element = 0; element <= counter.length; element++) {
-  //   counter.push(
-  //     <TextFields
-  //       idInput={id}
-  //       labelInput={`Thumbnail URL #${element}`}
-  //       nameInput="  thumbnailUrl"
-  //       onChangeInput={(e) => {
-  //         const { name, value } = e.target;
-  //         setData({ ...data, [name]: value });
-  //       }}
-  //       required
-  //       typeInput="url"
-  //       styleInput={{ width: '50vw', padding: 2 }}
-  //       variantStyle="standard"
-  //     />
-  //   );
-  // }
   return (
     <Box sx={{ margin: 5, width: { lg: '60vw', xs: '40vw', md: '70vw' } }}>
       <TextFields
@@ -107,7 +52,6 @@ export default function FormVideo() {
         multiline
         rowsInput={12}
       />
-
       <TextFields
         idInput={id}
         // labelInput="Upload date"
@@ -173,11 +117,33 @@ export default function FormVideo() {
         styleInput={{ width: '45vw', margin: 2 }}
         variantStyle="filled"
       />
-
-      <Button variant="contained" onClick={() => addInput()}>
+      {/* ////////////////////////////////////// */}
+      {inputList <= 0 && (
+        <TextFields
+          idInput={id}
+          fullWidth
+          labelInput={`Thumbnail URL #${1}`}
+          // labelInput="Thumbnail URL #1"
+          nameInput="thumbnailUrl"
+          onChangeInput={(e) => {
+            const { name, value } = e.target;
+            setData({ ...data, [name]: value });
+          }}
+          required
+          typeInput="url"
+          styleInput={{ width: '45vw', margin: 2 }}
+          variantStyle="filled"
+        />
+      )}
+      <Button
+        variant="contained"
+        onClick={(e) => {
+          e.preventDefault();
+          console.log('you click me');
+        }}
+      >
         +IMAGE
       </Button>
-
       <TextFields
         idInput={id}
         labelInput="Content URL"

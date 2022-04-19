@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import { useSelector } from 'react-redux';
-export default function ShowJsonCodeLocal() {
+export default function ShowJsonCodeHow() {
   const data = useSelector((state) => state.data);
   return (
     <pre>
