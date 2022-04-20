@@ -53,7 +53,7 @@ export default function Product() {
           <DeleteIcon onClick={(e) => dispatch(deleteData(data))} />
           <ContentCopyIcon
             onClick={() => {
-              navigator.clipboard.writeText(window.structuredClone(data.data));
+              navigator.clipboard.writeText(JSON.stringify(data.data));
             }}
           />{' '}
           {copySuccess}

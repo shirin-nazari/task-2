@@ -35,7 +35,7 @@ export default function Home() {
       <SelectFields
         idInput={id}
         variantInput="standard"
-        textLabel="Which Schema.org markup would you like to create?"
+        textLabel="از موارد زیر برای ساخت اسکیما انتخاب کنید"
         styleSx={{
           width: '40vw',
           // width: { lg: '40vw', md: '10vw' },

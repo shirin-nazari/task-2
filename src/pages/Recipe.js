@@ -46,7 +46,11 @@ export default function Recips() {
       >
         <Box>
           <DeleteIcon onClick={(e) => dispatch(deleteData(data))} />
-          <ContentCopyIcon onClick={() => dispatch(copyData(data.data))} />{' '}
+          <ContentCopyIcon
+            onClick={() => {
+              navigator.clipboard.writeText(JSON.stringify(data.data));
+            }}
+          />{' '}
           {copySuccess}
           <GoogleIcon />
         </Box>

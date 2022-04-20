@@ -58,7 +58,7 @@ export default function SelectFields({
         sx={styleSx}
         variant={variantInput}
         id={idInput}
-        placeholder="Which Schema.org markup would you like to create?"
+        placeholder="از موارد زیر برای ساخت اسکیما انتخاب کنید"
       >
         <MenuItem value="" sx={{ width: '40vw' }}>
           <Link to="/" style={styleOption}>

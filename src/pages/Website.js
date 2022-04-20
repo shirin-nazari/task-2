@@ -39,20 +39,40 @@ export default function Website() {
     >
       <Box
         sx={{
-          width: { lg: '80vw', xs: '40vw', md: '45vw' },
           display: 'flex',
-
           borderBottom: '1px solid #DFDFDF',
           paddingBottom: 2,
-          // width: '80vw',
+          width: { lg: '80vw', xs: '40vw', md: '45vw' },
         }}
       >
-        <LanguageIcon sx={{ fontSize: '40px', paddingRight: 1 }} />
-        <Typography variant="h4" component="h1">
-          Website
-        </Typography>
+        <Box>
+          <DeleteIcon onClick={(e) => dispatch(deleteData(data))} />
+          <ContentCopyIcon
+            onClick={() => {
+              navigator.clipboard.writeText(JSON.stringify(data.data));
+            }}
+          />{' '}
+          {copySuccess}
+          <GoogleIcon />
+        </Box>
+        {/* copyToClipBoard(data.data) */}
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'flex-end',
+            paddingBottom: 2,
+            width: { lg: '70vw', xs: '40vw', md: '45vw' },
+          }}
+        >
+          <Typography variant="h4" component="h1">
+            Website
+          </Typography>{' '}
+          <LanguageIcon sx={{ fontSize: '40px', paddingRight: 1 }} />
+        </Box>
       </Box>
-      <FormAndJson />
+      <Box>
+        <FormAndJson />
+      </Box>
     </Paper>
   );
 }

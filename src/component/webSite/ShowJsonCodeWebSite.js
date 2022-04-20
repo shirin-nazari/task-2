@@ -8,10 +8,6 @@ export default function ShowJsonCodeWebSite() {
       <span>{`<script type="application/ld+json">`}</span>
       <Box sx={{ width: '13vw', flexDirection: 'column' }}>
         {JSON.stringify(data.data, null, '\t\n')}
-        {/* .replaceAll(
-            ',\n\t"',
-            ',\n\n\t"'
-          ) */}
       </Box>
       <span>{`</script >`}</span>
     </pre>
