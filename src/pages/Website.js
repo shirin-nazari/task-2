@@ -6,8 +6,24 @@ import LanguageIcon from '@mui/icons-material/Language';
 import FormWebSite from '../component/webSite/FormWebSite';
 import ShowJsonCodeWebSite from '../component/webSite/ShowJsonCodeWebSite';
 import FormAndJson from '../component/webSite/FormAndJson';
-
+import DeleteIcon from '@mui/icons-material/Delete';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import GoogleIcon from '@mui/icons-material/Google';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteData, copyData } from '../redux/features/slice/getDataSlice';
 export default function Website() {
+  const [copySuccess, setCopySuccess] = useState('');
+  // const copyToClipBoard = async (copyMe) => {
+  //   try {
+  //     await navigator.clipboard.writeText(copyMe);
+  //     setCopySuccess('Copied!');
+  //   } catch (err) {
+  //     setCopySuccess('Failed to copy!');
+  //   }
+  // };
+  const data = useSelector((state) => state.data);
+  console.log(data);
+  const dispatch = useDispatch();
   const id = useId();
   return (
     <Paper

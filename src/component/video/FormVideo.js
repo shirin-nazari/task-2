@@ -16,6 +16,7 @@ const initialValuesVideo = {
 export default function FormVideo() {
   const [data, setData] = useState(initialValuesVideo);
   const [inputList, setInputList] = useState(0);
+  const numberMin = 0;
   const dispatch = useDispatch();
   // use id
   const id = useId();
@@ -75,7 +76,9 @@ export default function FormVideo() {
             e.target.value = 0;
           } else {
             const { name, value } = e.target;
-            setData({ ...data, [name]: value });
+            // numberMin = e.target.value;
+            setData({ ...data, [name]: `PT${value}` });
+            numberMin = value;
           }
         }}
         required
@@ -93,7 +96,7 @@ export default function FormVideo() {
             e.target.value = 0;
           } else {
             const { name, value } = e.target;
-            setData({ ...data, [name]: value });
+            setData({ ...data, [name]: `PT${numberMin}M${value}` });
           }
         }}
         required

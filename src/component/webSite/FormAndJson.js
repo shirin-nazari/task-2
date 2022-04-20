@@ -10,6 +10,7 @@ export default function FormAndJson() {
       sx={{
         width: { lg: '80vw', xs: '40vw', md: '45vw' },
         display: 'flex',
+        flexWrap: { lg: 'nowrap', xs: 'wrap-reverse', md: 'wrap-reverse' },
       }}
     >
       <Paper
