@@ -4,25 +4,9 @@ import { Paper, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import DeleteIcon from '@mui/icons-material/Delete';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import GoogleIcon from '@mui/icons-material/Google';
-import { useDispatch, useSelector } from 'react-redux';
-import { deleteData, copyData } from '../redux/features/slice/getDataSlice';
+
 import FormAndjson from '../component/question/FormAndjson';
 export default function FAQ() {
-  const [copySuccess, setCopySuccess] = useState('');
-  // const copyToClipBoard = async (copyMe) => {
-  //   try {
-  //     await navigator.clipboard.writeText(copyMe);
-  //     setCopySuccess('Copied!');
-  //   } catch (err) {
-  //     setCopySuccess('Failed to copy!');
-  //   }
-  // };
-  const data = useSelector((state) => state.data);
-  console.log(data);
-  const dispatch = useDispatch();
   return (
     <Paper
       sx={{
@@ -41,16 +25,6 @@ export default function FAQ() {
           width: { lg: '80vw', xs: '40vw', md: '45vw' },
         }}
       >
-        <Box>
-          <DeleteIcon onClick={(e) => dispatch(deleteData(data))} />
-          <ContentCopyIcon
-            onClick={() => {
-              navigator.clipboard.writeText(JSON.stringify(data.data));
-            }}
-          />{' '}
-          {copySuccess}
-          <GoogleIcon />
-        </Box>
         {/* copyToClipBoard(data.data) */}
         <Box
           sx={{

@@ -19,8 +19,16 @@ export default function FormQuestion() {
   // add data in store
   dispatch(addData(data));
   return (
-    <Box sx={{ margin: 5, width: { lg: '60vw', xs: '40vw', md: '70vw' } }}>
+    <Box
+      sx={{
+        width: { lg: '50vw', xs: '40vw', md: '70vw' },
+        display: 'flex',
+        flexDirection: 'column',
+        margin: '30px auto',
+      }}
+    >
       <TextFields
+        dir="rtl"
         idInput={id}
         labelInput="سوال"
         nameInput="question"
@@ -51,21 +59,6 @@ export default function FormQuestion() {
           height: '40vh',
         }}
       />
-      {/* <TextFields
-        idInput={id}
-        labelInput=""
-        nameInput="answer"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
-        required
-        typeInput="textarea"
-        styleInput={{ width: '40vw', padding: 1 }}
-        variantStyle="filled"
-        multiline
-        rowsInput={12}
-      /> */}
     </Box>
   );
 }
