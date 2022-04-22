@@ -43,11 +43,16 @@ export default function SelectFields({
     width: '40vw',
   };
   return (
-    <FormControl>
-      <InputLabel id="demo-controlled-open-select-label">
+    <FormControl dir="rtl" sx={{ direction: 'rtl' }}>
+      <InputLabel
+        dir="rtl"
+        sx={{ direction: 'rtl' }}
+        id="demo-controlled-open-select-label"
+      >
         {textLabel}
       </InputLabel>
       <Select
+        dir="rtl"
         onChange={handleChange}
         labelId="demo-controlled-open-select-label"
         open={open}
@@ -58,50 +63,57 @@ export default function SelectFields({
         sx={styleSx}
         variant={variantInput}
         id={idInput}
-        placeholder="از موارد زیر برای ساخت اسکیما انتخاب کنید"
+        // placeholder="از موارد زیر برای ساخت اسکیما انتخاب کنید"
       >
-        <MenuItem value="" sx={{ width: '40vw' }}>
+        <MenuItem value="" sx={{ width: '40vw', direction: 'rtl' }}>
           <Link to="/" style={styleOption}>
             <em>None</em>
           </Link>
         </MenuItem>
-        <MenuItem value="How-to" sx={{ width: '40vw' }}>
+        <MenuItem value="How-to" sx={{ width: '40vw', direction: 'rtl' }}>
           <Link to="/How-to" style={styleOption}>
             <FormatListNumberedIcon />
             How-to
           </Link>
         </MenuItem>
-        <MenuItem value="fAqPage" sx={{ width: '40vw' }}>
+        <MenuItem value="fAqPage" sx={{ width: '40vw', direction: 'rtl' }}>
           <Link to="/faq" style={styleOption}>
             <HelpOutlineIcon />
             FAQ Page
           </Link>
         </MenuItem>
-        <MenuItem value="LocalBusiness" sx={{ width: '40vw' }}>
+        <MenuItem
+          value="LocalBusiness"
+          sx={{ width: '40vw', direction: 'rtl' }}
+        >
           <Link to="/LocalBusiness" style={styleOption}>
             <StoreIcon />
             Local Business
           </Link>
         </MenuItem>
-        <MenuItem value="video" sx={{ width: '40vw' }}>
+        <MenuItem value="video" sx={{ width: '40vw', direction: 'rtl' }}>
           <Link to="/video" style={styleOption}>
             <VideocamIcon />
             Video
           </Link>
         </MenuItem>
-        <MenuItem value="recipe" sx={{ width: '40vw' }}>
+        <MenuItem value="recipe" sx={{ width: '40vw', direction: 'rtl' }}>
           <Link to="/recipe" style={styleOption}>
             <Recipet />
             Recipe
           </Link>
         </MenuItem>
-        <MenuItem value="product" style={styleOption} sx={{ width: '40vw' }}>
+        <MenuItem
+          value="product"
+          style={styleOption}
+          sx={{ width: '40vw', direction: 'rtl' }}
+        >
           <Link to="/product" style={styleOption}>
             <LocalOfferIcon />
             Product
           </Link>
         </MenuItem>
-        <MenuItem value="website" sx={{ width: '40vw' }}>
+        <MenuItem value="website" sx={{ width: '40vw', direction: 'rtl' }}>
           <Link to="/website" style={styleOption}>
             <LanguageIcon />
             Website

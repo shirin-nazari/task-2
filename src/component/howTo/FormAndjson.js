@@ -13,11 +13,18 @@ import Collapse from '@mui/material/Collapse';
 
 export default function FormAndjson() {
   const [copySuccess, setCopySuccess] = useState('');
-
   const data = useSelector((state) => state.data);
   const [open, setOpen] = useState(true);
   const [addInput, setAddInput] = useState(false);
   // console.log(data);
+  const initialDataQuestion = {
+    name: '',
+    description: '',
+  };
+  const copyText = `<script type="application/ld+json">
+  ${JSON.stringify(data.data)}
+  </script>
+`;
   const dispatch = useDispatch();
   return (
     <Box
@@ -47,8 +54,7 @@ export default function FormAndjson() {
             }}
             variant="contained"
             onClick={(e) => {
-              // delete data.data[getValue];
-              // dispatch(deleteData(data.data));
+              dispatch(deleteData(initialDataQuestion));
             }}
           >
             {' '}
@@ -64,7 +70,7 @@ export default function FormAndjson() {
             size="large"
             variant="contained"
             onClick={() => {
-              navigator.clipboard.writeText(JSON.stringify(data.data));
+              navigator.clipboard.writeText(copyText);
               setCopySuccess(true);
               setOpen(true);
             }}
@@ -101,7 +107,7 @@ export default function FormAndjson() {
       </Box>
 
       <Box>
-        <FormHowTo />
+        <FormHowTo initialDataQuestion={initialDataQuestion} />
         <Button
           size="large"
           variant="contained"

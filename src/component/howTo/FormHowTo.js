@@ -3,14 +3,9 @@ import { Box } from '@mui/system';
 import TextFields from '../TextFields';
 import { useDispatch } from 'react-redux';
 import { addData } from '../../redux/features/slice/getDataSlice';
-import TextareaAutosize from '@mui/base/TextareaAutosize';
 import { MenuItem, Select } from '@mui/material';
 
-const initialDataQuestion = {
-  name: '',
-  description: '',
-};
-export default function FormQuestion() {
+export default function FormQuestion({ initialDataQuestion }) {
   const [data, setData] = useState(initialDataQuestion);
 
   const dispatch = useDispatch();

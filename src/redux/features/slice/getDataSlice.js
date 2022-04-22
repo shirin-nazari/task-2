@@ -11,6 +11,7 @@ const getDataSlice = createSlice({
     },
     deleteData(state, { payload }) {
       // // delete data[payload];
+      state.data = payload;
       // const deleteOb = state.data
       //   .map((item) => {
       //     return item.id;
@@ -18,7 +19,7 @@ const getDataSlice = createSlice({
       //   .indexOf(37);
       // state.data.splice(deleteOb, 1);
       // return state.data;
-      delete state.data[payload];
+      // delete state.data[payload];
       // delete Object.values;
       // state.data = 0;
       // state.length = 0;

@@ -27,12 +27,14 @@ export default function Home() {
         and/or the Rich Results Test.
       </p>
       <SelectFields
+        dir="rtl"
         idInput={id}
         variantInput="standard"
         textLabel="از موارد زیر برای ساخت اسکیما انتخاب کنید"
         styleSx={{
           width: '40vw',
           margin: 1,
+          float: 'right',
         }}
         onChangeInput={(e) => console.log(e.target.value)}
       />
