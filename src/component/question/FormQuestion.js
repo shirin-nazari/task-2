@@ -28,6 +28,8 @@ export default function FormQuestion() {
       }}
     >
       <TextFields
+        // valueInput={data.question}
+        value={data.question}
         dir="rtl"
         idInput={id}
         labelInput="سوال"
@@ -43,6 +45,7 @@ export default function FormQuestion() {
       />
       <TextareaAutosize
         id={id}
+        value={data.answer}
         aria-label="جواب"
         name="answer"
         onChange={(e) => {
@@ -56,7 +59,7 @@ export default function FormQuestion() {
           padding: 1,
           marginTop: 5,
           background: '#F0F0F0',
-          height: '40vh',
+          height: '30vh',
         }}
       />
     </Box>

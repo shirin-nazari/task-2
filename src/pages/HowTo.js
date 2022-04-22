@@ -36,35 +36,16 @@ export default function HowTo() {
       <Box
         sx={{
           display: 'flex',
+          justifyContent: 'flex-end',
           borderBottom: '1px solid #DFDFDF',
           paddingBottom: 2,
           width: { lg: '80vw', xs: '40vw', md: '45vw' },
         }}
       >
-        <Box>
-          <DeleteIcon onClick={(e) => dispatch(deleteData(data))} />
-          <ContentCopyIcon
-            onClick={() => {
-              navigator.clipboard.writeText(JSON.stringify(data.data));
-            }}
-          />{' '}
-          {copySuccess}
-          <GoogleIcon />
-        </Box>
-        {/* copyToClipBoard(data.data) */}
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'flex-end',
-            paddingBottom: 2,
-            width: { lg: '70vw', xs: '40vw', md: '45vw' },
-          }}
-        >
-          <Typography variant="h4" component="h1">
-            HowTo
-          </Typography>
-          <FormatListNumberedIcon sx={{ fontSize: '40px', paddingRight: 1 }} />
-        </Box>
+        <Typography variant="h4" component="h1">
+          HowTo
+        </Typography>
+        <FormatListNumberedIcon sx={{ fontSize: '40px', paddingRight: 1 }} />
       </Box>
 
       <Box>

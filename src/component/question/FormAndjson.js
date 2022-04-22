@@ -10,6 +10,8 @@ import { Alert, Button, IconButton, Paper } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import CloseIcon from '@mui/icons-material/Close';
 import Collapse from '@mui/material/Collapse';
+import { getValue } from '@testing-library/user-event/dist/utils';
+import { toHaveFormValues } from '@testing-library/jest-dom/dist/matchers';
 
 export default function FormAndjson() {
   const [copySuccess, setCopySuccess] = useState('');
@@ -17,7 +19,7 @@ export default function FormAndjson() {
   const data = useSelector((state) => state.data);
   const [open, setOpen] = useState(true);
   const [addInput, setAddInput] = useState(false);
-  console.log(data);
+  // console.log(data);
   const dispatch = useDispatch();
   return (
     <Box
@@ -46,7 +48,10 @@ export default function FormAndjson() {
               justifyContent: 'space-around',
             }}
             variant="contained"
-            onClick={(e) => dispatch(deleteData(data))}
+            onClick={(e) => {
+              // delete data.data[getValue];
+              dispatch(deleteData(data.data));
+            }}
           >
             {' '}
             <DeleteIcon />
@@ -106,11 +111,11 @@ export default function FormAndjson() {
         >
           اضافه کردن سوال
         </Button>
-        {addInput && (
+        {/* {addInput && (
           <Collapse in={addInput}>
             <FormQuestion />
           </Collapse>
-        )}
+        )} */}
         {copySuccess && (
           <Collapse in={open}>
             <Alert

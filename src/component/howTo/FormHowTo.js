@@ -19,9 +19,17 @@ export default function FormQuestion() {
   // add data in store
   dispatch(addData(data));
   return (
-    <Box sx={{ margin: 5, width: { lg: '60vw', xs: '40vw', md: '70vw' } }}>
+    <Box
+      sx={{
+        width: { lg: '50vw', xs: '40vw', md: '70vw' },
+        display: 'flex',
+        flexDirection: 'column',
+        margin: '30px auto',
+      }}
+    >
       <TextFields
         idInput={id}
+        dir="rtl"
         labelInput="نام"
         nameInput="name"
         onChangeInput={(e) => {
@@ -30,7 +38,7 @@ export default function FormQuestion() {
         }}
         required
         typeInput="text"
-        styleInput={{ width: '25vw', padding: 1 }}
+        styleInput={{ width: '40vw', padding: 1 }}
         variantStyle="filled"
       />
       <TextFields
@@ -43,75 +51,95 @@ export default function FormQuestion() {
         }}
         required
         typeInput="textarea"
-        styleInput={{ width: '25vw', margin: 2 }}
+        styleInput={{ width: '40vw', padding: 1 }}
         variantStyle="filled"
         multiline
         rowsInput={12}
       />
-      <TextFields
-        idInput={id}
-        labelInput="زمان کل"
-        nameInput="totalTime"
-        onChangeInput={(e) => {
-          if (e.target.value < 0) {
-            e.target.value = 0;
-          } else {
-            const { name, value } = e.target;
-            setData({ ...data, [name]: `PT${value}M` });
-          }
+      <Box
+        sx={{
+          display: 'flex',
+          flexWrap: { lg: 'nowrap', md: 'wrap', xs: 'wrap' },
         }}
-        required
-        typeInput="number"
-        minNumber="0"
-        styleInput={{ width: '8vw', padding: 1 }}
-        variantStyle="filled"
-      />
-      <TextFields
-        idInput={id}
-        labelInput="Estimated"
-        nameInput="Estimated"
-        onChangeInput={(e) => {
-          if (e.target.value < 0) {
-            e.target.value = 0;
-          } else {
+      >
+        <TextFields
+          idInput={id}
+          labelInput="زمان کل"
+          nameInput="totalTime"
+          onChangeInput={(e) => {
+            if (e.target.value < 0) {
+              e.target.value = 0;
+            } else {
+              const { name, value } = e.target;
+              setData({ ...data, [name]: `PT${value}M` });
+            }
+          }}
+          required
+          typeInput="number"
+          minNumber="0"
+          styleInput={{ width: '13vw', padding: 1 }}
+          variantStyle="filled"
+        />
+        <TextFields
+          idInput={id}
+          labelInput="Estimated"
+          nameInput="Estimated"
+          onChangeInput={(e) => {
+            if (e.target.value < 0) {
+              e.target.value = 0;
+            } else {
+              const { name, value } = e.target;
+              setData({ ...data, [name]: value });
+            }
+          }}
+          required
+          typeInput="number"
+          minNumber="0"
+          styleInput={{ width: '13vw', padding: 1 }}
+          variantStyle="filled"
+        />
+        <Select
+          idInput={id}
+          label="LocalBusiness"
+          name="currency"
+          onChange={(e) => {
             const { name, value } = e.target;
             setData({ ...data, [name]: value });
-          }
-        }}
-        required
-        typeInput="number"
-        minNumber="0"
-        styleInput={{ width: '8vw', padding: 1 }}
-        variantStyle="filled"
-      />
-      <Select
+          }}
+          required
+          sx={{ width: '12vw', padding: 1 }}
+          variant="filled"
+        >
+          <MenuItem value="UnitedStatesDollar" sx={{ width: '20vw' }}>
+            $ United States Dollar
+          </MenuItem>
+          <MenuItem value="BritishPoundSterling" sx={{ width: '20vw' }}>
+            British Pound Sterling
+          </MenuItem>
+          <MenuItem value="Canadian Dollar" sx={{ width: '20vw' }}>
+            Canadian Dollar
+          </MenuItem>
+          <MenuItem value="Euro" sx={{ width: '20vw' }}>
+            Euro
+          </MenuItem>
+          <MenuItem value="UnitedArabEmiratesDirham" sx={{ width: '20vw' }}>
+            United Arab Emirates Dirham
+          </MenuItem>
+        </Select>
+      </Box>
+      <TextFields
         idInput={id}
-        label="LocalBusiness"
-        name="currency"
-        onChange={(e) => {
+        labelInput="نام"
+        nameInput="name"
+        onChangeInput={(e) => {
           const { name, value } = e.target;
           setData({ ...data, [name]: value });
         }}
         required
-        sx={{ width: '8vw', padding: 1 }}
-        variant="filled"
-      >
-        <MenuItem value="UnitedStatesDollar" sx={{ width: '25vw' }}>
-          $ United States Dollar
-        </MenuItem>
-        <MenuItem value="BritishPoundSterling" sx={{ width: '25vw' }}>
-          British Pound Sterling
-        </MenuItem>
-        <MenuItem value="Canadian Dollar" sx={{ width: '25vw' }}>
-          Canadian Dollar
-        </MenuItem>
-        <MenuItem value="Euro" sx={{ width: '25vw' }}>
-          Euro
-        </MenuItem>
-        <MenuItem value="UnitedArabEmiratesDirham" sx={{ width: '25vw' }}>
-          United Arab Emirates Dirham
-        </MenuItem>
-      </Select>
+        typeInput="text"
+        styleInput={{ width: '40vw', padding: 1 }}
+        variantStyle="filled"
+      />
     </Box>
   );
 }
