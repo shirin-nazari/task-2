@@ -4,31 +4,34 @@ import TextFields from '../TextFields';
 import { useDispatch } from 'react-redux';
 import { addData } from '../../redux/features/slice/getDataSlice';
 
-const initialDataRecipe = {
-  name: '',
-  description: '',
-  Keywords: '',
-  image: '',
-};
-export default function FormRecipe() {
+export default function FormRecipe({ initialDataRecipe }) {
   const counter = [0, 1, 2, 3, 4, 5];
   const [data, setData] = useState(initialDataRecipe);
-  const [count, setCount] = useState(0);
+  const updateData = (e) => {
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
+  };
   const dispatch = useDispatch();
   // use id
+
   const id = useId();
   // add data in store
+  // dispatch(addData({ ...data, id }));
   dispatch(addData(data));
   return (
-    <Box sx={{ margin: 5, width: { lg: '60vw', xs: '40vw', md: '70vw' } }}>
+    <Box
+      sx={{
+        width: { lg: '50vw', xs: '40vw', md: '70vw' },
+        display: 'flex',
+        flexDirection: 'column',
+        margin: '30px auto',
+      }}
+    >
       <TextFields
         idInput={id}
         labelInput="Website's Name"
         nameInput="name"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="text"
         styleInput={{ width: '25vw', padding: 1 }}
@@ -38,10 +41,7 @@ export default function FormRecipe() {
         idInput={id}
         labelInput="Recipe's description"
         nameInput="description"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="textarea"
         styleInput={{ width: '25vw', padding: 4, margin: 2 }}
@@ -53,10 +53,7 @@ export default function FormRecipe() {
         idInput={id}
         labelInput="Keywords"
         nameInput="Keywords"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="url"
         styleInput={{ width: '25vw', padding: 2 }}
@@ -67,10 +64,7 @@ export default function FormRecipe() {
         fullWidth
         labelInput="Image URL #1"
         nameInput="image"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="url"
         styleInput={{ width: '55vw', padding: 2 }}

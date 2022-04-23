@@ -6,19 +6,29 @@ import { addData } from '../../redux/features/slice/getDataSlice';
 import { MenuItem, Select } from '@mui/material';
 import validUrl from 'valid-url';
 
-const initialDataLocal = {
-  name: '',
-};
-export default function FormRecipe() {
+export default function FormRecipe({ initialDataLocal }) {
   const [data, setData] = useState(initialDataLocal);
 
+  const updateData = (e) => {
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
+  };
   const dispatch = useDispatch();
   // use id
+
   const id = useId();
   // add data in store
+  // dispatch(addData({ ...data, id }));
   dispatch(addData(data));
   return (
-    <Box sx={{ margin: 5, width: { lg: '60vw', xs: '40vw', md: '70vw' } }}>
+    <Box
+      sx={{
+        width: { lg: '50vw', xs: '40vw', md: '70vw' },
+        display: 'flex',
+        flexDirection: 'column',
+        margin: '30px auto',
+      }}
+    >
       <Select
         idInput={id}
         label="LocalBusiness"
@@ -51,10 +61,7 @@ export default function FormRecipe() {
         idInput={id}
         labelInput="نام"
         nameInput="name"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="text"
         styleInput={{ width: '25vw', padding: 4, margin: 2 }}
@@ -66,10 +73,7 @@ export default function FormRecipe() {
         idInput={id}
         labelInput="ادرس عکس"
         nameInput="ImageURL"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         errorInput={validUrl.isUri(data.ImageURL) ? false : true}
         typeInput="url"
@@ -82,10 +86,7 @@ export default function FormRecipe() {
         labelInput="ادرس ایدی@"
         nameInput="idURL"
         errorInput={validUrl.isUri(data.idURL) ? false : true}
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="url"
         styleInput={{ width: '25vw', padding: 2 }}
@@ -97,10 +98,7 @@ export default function FormRecipe() {
         labelInput="آدرس"
         nameInput="url"
         errorInput={validUrl.isUri(data.url) ? false : true}
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="url"
         styleInput={{ width: '25vw', padding: 2 }}
@@ -111,10 +109,7 @@ export default function FormRecipe() {
         fullWidth
         labelInput="شماره تلفن"
         nameInput="Phone"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="url"
         styleInput={{ width: '25vw', padding: 2 }}
@@ -125,10 +120,7 @@ export default function FormRecipe() {
         fullWidth
         labelInput="رنج قیمت"
         nameInput="PriceRange"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="url"
         styleInput={{ width: '25vw', padding: 2 }}
@@ -139,10 +131,7 @@ export default function FormRecipe() {
         fullWidth
         labelInput="خیابان"
         nameInput="Street"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="url"
         styleInput={{ width: '25vw', padding: 2 }}
@@ -153,10 +142,7 @@ export default function FormRecipe() {
         fullWidth
         labelInput="شهر"
         nameInput="City"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="url"
         styleInput={{ width: '25vw', padding: 2 }}
@@ -167,10 +153,7 @@ export default function FormRecipe() {
         fullWidth
         labelInput="Zip code"
         nameInput="ZipCode"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="url"
         styleInput={{ width: '25vw', padding: 2 }}

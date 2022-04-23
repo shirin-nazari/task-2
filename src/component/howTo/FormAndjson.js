@@ -4,7 +4,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import GoogleIcon from '@mui/icons-material/Google';
 import { deleteData, copyData } from '../../redux/features/slice/getDataSlice';
-import ShowJsonCodeHow from './ShowJsonCodeHow';
+import ShowJsonCode from '../ShowJsonCode';
 import FormHowTo from './FormHowTo';
 import { Alert, Button, IconButton, Paper } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
@@ -152,7 +152,7 @@ export default function FormAndjson() {
             padding: 4,
           }}
         >
-          <ShowJsonCodeHow />
+          <ShowJsonCode />
         </Paper>
       </Box>
 

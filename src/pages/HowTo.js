@@ -1,28 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Paper, Typography } from '@mui/material';
 
 import { Box } from '@mui/system';
 import FormAndjson from '../component/howTo/FormAndjson';
-import DeleteIcon from '@mui/icons-material/Delete';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import GoogleIcon from '@mui/icons-material/Google';
-import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
-import { useDispatch, useSelector } from 'react-redux';
-import { deleteData, copyData } from '../redux/features/slice/getDataSlice';
-export default function HowTo() {
-  const [copySuccess, setCopySuccess] = useState('');
-  // const copyToClipBoard = async (copyMe) => {
-  //   try {
-  //     await navigator.clipboard.writeText(copyMe);
-  //     setCopySuccess('Copied!');
-  //   } catch (err) {
-  //     setCopySuccess('Failed to copy!');
-  //   }
-  // };
-  const data = useSelector((state) => state.data);
-  const dispatch = useDispatch();
-  console.log(data);
 
+import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
+export default function HowTo() {
   return (
     <Paper
       sx={{

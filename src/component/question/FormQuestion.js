@@ -5,19 +5,17 @@ import { useDispatch } from 'react-redux';
 import { addData } from '../../redux/features/slice/getDataSlice';
 import TextareaAutosize from '@mui/base/TextareaAutosize';
 
-const initialDataQuestion = {
-  question: '',
-  answer: '',
-};
-export default function FormQuestion() {
-  const counter = [0, 1, 2, 3, 4, 5];
+export default function FormQuestion({ initialDataQuestion }) {
   const [data, setData] = useState(initialDataQuestion);
-  const [count, setCount] = useState(0);
   const dispatch = useDispatch();
   // use id
   const id = useId();
   // add data in store
   dispatch(addData(data));
+  const updateData = (e) => {
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
+  };
   return (
     <Box
       sx={{
@@ -34,10 +32,7 @@ export default function FormQuestion() {
         idInput={id}
         labelInput="سوال"
         nameInput="question"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="text"
         styleInput={{ width: '40vw', padding: 1 }}
@@ -48,10 +43,7 @@ export default function FormQuestion() {
         value={data.answer}
         aria-label="جواب"
         name="answer"
-        onChange={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         minRows={3}
         placeholder="answer ..."
         style={{

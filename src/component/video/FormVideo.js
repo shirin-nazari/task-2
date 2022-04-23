@@ -18,23 +18,32 @@ export default function FormVideo() {
   const [inputList, setInputList] = useState(0);
   const [numberMin, setNumberMin] = useState(0);
   const [numberSec, setNumberSec] = useState(0);
-  // const numberMin = 0;
+
+  const updateData = (e) => {
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
+  };
   const dispatch = useDispatch();
   // use id
+
   const id = useId();
   // add data in store
+  // dispatch(addData({ ...data, id }));
   dispatch(addData(data));
-
   return (
-    <Box sx={{ margin: 5, width: { lg: '60vw', xs: '40vw', md: '70vw' } }}>
+    <Box
+      sx={{
+        width: { lg: '50vw', xs: '40vw', md: '70vw' },
+        display: 'flex',
+        flexDirection: 'column',
+        margin: '30px auto',
+      }}
+    >
       <TextFields
         idInput={id}
         labelInput="Name"
         nameInput="name"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="text"
         styleInput={{ width: '25vw' }}
@@ -44,10 +53,7 @@ export default function FormVideo() {
         idInput={id}
         labelInput="Video's description"
         nameInput="videoDescription"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="textarea"
         styleInput={{ width: '25vw', margin: 2 }}
@@ -59,10 +65,7 @@ export default function FormVideo() {
         idInput={id}
         // labelInput="Upload date"
         nameInput="uploadDate"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="date"
         styleInput={{ width: '8vw' }}
@@ -114,10 +117,7 @@ export default function FormVideo() {
         labelInput={`Thumbnail URL #${1}`}
         // labelInput="Thumbnail URL #1"
         nameInput="thumbnailUrl"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="url"
         styleInput={{ width: '45vw', margin: 2 }}
@@ -131,10 +131,7 @@ export default function FormVideo() {
           labelInput={`Thumbnail URL #${1}`}
           // labelInput="Thumbnail URL #1"
           nameInput="thumbnailUrl"
-          onChangeInput={(e) => {
-            const { name, value } = e.target;
-            setData({ ...data, [name]: value });
-          }}
+          onChangeInput={updateData}
           required
           typeInput="url"
           styleInput={{ width: '45vw', margin: 2 }}
@@ -154,10 +151,7 @@ export default function FormVideo() {
         idInput={id}
         labelInput="Content URL"
         nameInput="contentURL"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="url"
         styleInput={{ width: '10vw', padding: 2 }}
@@ -167,10 +161,7 @@ export default function FormVideo() {
         idInput={id}
         labelInput="Embed URL"
         nameInput="embedURL"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="url"
         styleInput={{ width: '10vw', padding: 2 }}
@@ -180,10 +171,7 @@ export default function FormVideo() {
         idInput={id}
         labelInput="SeekToAction Target URL"
         nameInput="seekToActionTargetURL"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="url"
         styleInput={{ width: '40vw' }}
@@ -193,10 +181,7 @@ export default function FormVideo() {
         idInput={id}
         labelInput="Publisher"
         nameInput="publisher"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="url"
         styleInput={{ width: '10vw', padding: 2 }}
@@ -206,10 +191,7 @@ export default function FormVideo() {
         idInput={id}
         labelInput="Publisher logo URL"
         nameInput=" publisherLogoURL"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="url"
         styleInput={{ width: '10vw', padding: 2 }}
@@ -219,10 +201,7 @@ export default function FormVideo() {
         idInput={id}
         labelInput="Logo width (≤ 600px)"
         nameInput="logoWidth"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="number"
         styleInput={{ width: '10vw', padding: 2 }}
@@ -232,10 +211,7 @@ export default function FormVideo() {
         idInput={id}
         labelInput="Logo height (≤ 60px)"
         nameInput="logoHeight"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="number"
         styleInput={{ width: '10vw', padding: 2 }}
