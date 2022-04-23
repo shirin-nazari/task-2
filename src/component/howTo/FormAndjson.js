@@ -4,13 +4,13 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import GoogleIcon from '@mui/icons-material/Google';
 import { deleteData, copyData } from '../../redux/features/slice/getDataSlice';
+import ShowJsonCode from '../ShowJsonCode';
+import FormHowTo from './FormHowTo';
 import { Alert, Button, IconButton, Paper } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import CloseIcon from '@mui/icons-material/Close';
 import Collapse from '@mui/material/Collapse';
 import Popover from '@mui/material/Popover';
-import ShowJsonCode from '../ShowJsonCode';
-import FormLocalBusiness from './FormLocalBusiness';
 
 import Typography from '@mui/material/Typography';
 
@@ -31,8 +31,9 @@ export default function FormAndjson() {
 
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
-  const initialDataLocal = {
+  const initialDataHowTo = {
     name: '',
+    description: '',
   };
   const initialDataRemove = {
     name: '',
@@ -156,7 +157,7 @@ export default function FormAndjson() {
       </Box>
 
       <Box>
-        <FormLocalBusiness initialDataLocal={initialDataLocal} />
+        <FormHowTo initialDataHow={initialDataHowTo} />
         <Button
           size="large"
           variant="contained"

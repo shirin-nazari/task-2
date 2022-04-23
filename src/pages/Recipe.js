@@ -1,13 +1,11 @@
-import { Paper, Typography } from '@mui/material';
 import React from 'react';
+import { Paper, Typography } from '@mui/material';
 
 import { Box } from '@mui/system';
-
-import Recipet from '@mui/icons-material/Receipt';
-import FormRecipe from '../component/recipe/FormRecipe';
-import ShowJsonCodeRecipe from '../component/recipe/ShowJsonCodeRecipe';
 import FormAndjson from '../component/recipe/FormAndjson';
-export default function Recips() {
+import Recipet from '@mui/icons-material/Receipt';
+
+export default function LocalBusiness() {
   return (
     <Paper
       sx={{
@@ -18,21 +16,21 @@ export default function Recips() {
         padding: 5,
       }}
     >
-      <Box>
-        <Box
-          sx={{
-            display: 'flex',
-            borderBottom: '1px solid #DFDFDF',
-            paddingBottom: 2,
-            width: { lg: '80vw', xs: '40vw', md: '45vw' },
-          }}
-        >
-          <Recipet sx={{ fontSize: '40px', paddingRight: 1 }} />
-          <Typography variant="h4" component="h1">
-            Recipet
-          </Typography>
-        </Box>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'flex-end',
+          borderBottom: '1px solid #DFDFDF',
+          paddingBottom: 2,
+          width: { lg: '80vw', xs: '40vw', md: '45vw' },
+        }}
+      >
+        <Typography variant="h4" component="h1">
+          Recipet
+        </Typography>
+        <Recipet sx={{ fontSize: '40px', paddingRight: 1 }} />
       </Box>
+
       <Box>
         <FormAndjson />
       </Box>

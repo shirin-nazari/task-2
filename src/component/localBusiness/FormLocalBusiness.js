@@ -3,47 +3,67 @@ import { Box } from '@mui/system';
 import TextFields from '../TextFields';
 import { useDispatch } from 'react-redux';
 import { addData } from '../../redux/features/slice/getDataSlice';
+import { MenuItem, Select } from '@mui/material';
+import validUrl from 'valid-url';
 
-const initialDataRecipe = {
-  name: '',
-  description: '',
-  Keywords: '',
-  image: '',
-};
-export default function FormRecipe() {
-  const counter = [0, 1, 2, 3, 4, 5];
-  const [data, setData] = useState(initialDataRecipe);
-  const [count, setCount] = useState(0);
+export default function FormRecipe({ initialDataLocal }) {
+  const [data, setData] = useState(initialDataLocal);
+
+  const updateData = (e) => {
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
+  };
   const dispatch = useDispatch();
   // use id
+
   const id = useId();
   // add data in store
+  // dispatch(addData({ ...data, id }));
   dispatch(addData(data));
   return (
-    <Box sx={{ margin: 5, width: { lg: '60vw', xs: '40vw', md: '70vw' } }}>
-      <TextFields
+    <Box
+      sx={{
+        width: { lg: '50vw', xs: '40vw', md: '70vw' },
+        display: 'flex',
+        flexDirection: 'column',
+        margin: '30px auto',
+      }}
+    >
+      <Select
         idInput={id}
-        labelInput="Website's Name"
-        nameInput="name"
-        onChangeInput={(e) => {
+        label="LocalBusiness"
+        name="LocalBusiness"
+        onChange={(e) => {
           const { name, value } = e.target;
           setData({ ...data, [name]: value });
         }}
+        required
+        sx={{ width: '25vw', padding: 1 }}
+        variant="filled"
+      >
+        <MenuItem value="LocalBusiness" sx={{ width: '25vw' }}>
+          Local Business
+        </MenuItem>
+        <MenuItem value="AnimalShelter" sx={{ width: '25vw' }}>
+          AnimalShelter
+        </MenuItem>
+        <MenuItem value="ArchiveOrganization" sx={{ width: '25vw' }}>
+          ArchiveOrganization
+        </MenuItem>
+        <MenuItem value="AutomotiveBusiness" sx={{ width: '25vw' }}>
+          AutomotiveBusiness
+        </MenuItem>
+        <MenuItem value="ChildCare" sx={{ width: '25vw' }}>
+          ChildCare
+        </MenuItem>
+      </Select>
+      <TextFields
+        idInput={id}
+        labelInput="نام"
+        nameInput="name"
+        onChangeInput={updateData}
         required
         typeInput="text"
-        styleInput={{ width: '25vw', padding: 1 }}
-        variantStyle="filled"
-      />
-      <TextFields
-        idInput={id}
-        labelInput="Recipe's description"
-        nameInput="description"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
-        required
-        typeInput="textarea"
         styleInput={{ width: '25vw', padding: 4, margin: 2 }}
         variantStyle="filled"
         multiline
@@ -51,12 +71,22 @@ export default function FormRecipe() {
       />
       <TextFields
         idInput={id}
-        labelInput="Keywords"
-        nameInput="Keywords"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        labelInput="ادرس عکس"
+        nameInput="ImageURL"
+        onChangeInput={updateData}
+        required
+        errorInput={validUrl.isUri(data.ImageURL) ? false : true}
+        typeInput="url"
+        styleInput={{ width: '25vw', padding: 2 }}
+        variantStyle="filled"
+      />
+      <TextFields
+        idInput={id}
+        fullWidth
+        labelInput="ادرس ایدی@"
+        nameInput="idURL"
+        errorInput={validUrl.isUri(data.idURL) ? false : true}
+        onChangeInput={updateData}
         required
         typeInput="url"
         styleInput={{ width: '25vw', padding: 2 }}
@@ -65,15 +95,68 @@ export default function FormRecipe() {
       <TextFields
         idInput={id}
         fullWidth
-        labelInput="Image URL #1"
-        nameInput="image"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        labelInput="آدرس"
+        nameInput="url"
+        errorInput={validUrl.isUri(data.url) ? false : true}
+        onChangeInput={updateData}
         required
         typeInput="url"
-        styleInput={{ width: '55vw', padding: 2 }}
+        styleInput={{ width: '25vw', padding: 2 }}
+        variantStyle="filled"
+      />
+      <TextFields
+        idInput={id}
+        fullWidth
+        labelInput="شماره تلفن"
+        nameInput="Phone"
+        onChangeInput={updateData}
+        required
+        typeInput="url"
+        styleInput={{ width: '25vw', padding: 2 }}
+        variantStyle="filled"
+      />
+      <TextFields
+        idInput={id}
+        fullWidth
+        labelInput="رنج قیمت"
+        nameInput="PriceRange"
+        onChangeInput={updateData}
+        required
+        typeInput="url"
+        styleInput={{ width: '25vw', padding: 2 }}
+        variantStyle="filled"
+      />
+      <TextFields
+        idInput={id}
+        fullWidth
+        labelInput="خیابان"
+        nameInput="Street"
+        onChangeInput={updateData}
+        required
+        typeInput="url"
+        styleInput={{ width: '25vw', padding: 2 }}
+        variantStyle="filled"
+      />
+      <TextFields
+        idInput={id}
+        fullWidth
+        labelInput="شهر"
+        nameInput="City"
+        onChangeInput={updateData}
+        required
+        typeInput="url"
+        styleInput={{ width: '25vw', padding: 2 }}
+        variantStyle="filled"
+      />
+      <TextFields
+        idInput={id}
+        fullWidth
+        labelInput="Zip code"
+        nameInput="ZipCode"
+        onChangeInput={updateData}
+        required
+        typeInput="url"
+        styleInput={{ width: '25vw', padding: 2 }}
         variantStyle="filled"
       />
     </Box>

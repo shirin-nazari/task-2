@@ -22,7 +22,8 @@ export default function TextFields({
       min={minNumber && minNumber}
       name={nameInput && nameInput}
       type={typeInput && typeInput}
-      value={valueInput && valueInput}
+      // value={valueInput && valueInput}
+
       id={idInput && idInput}
       sx={styleInput && styleInput}
       label={labelInput && labelInput}
