@@ -4,14 +4,23 @@ import TextFields from '../TextFields';
 import { useDispatch } from 'react-redux';
 import { addData } from '../../redux/features/slice/getDataSlice';
 import { MenuItem, Select } from '@mui/material';
+// const initialDataHowTo = {
+//   name: '',
+//   description: '',
+// };
+export default function FormQuestion({ initialDataHowTo }) {
+  const [data, setData] = useState(initialDataHowTo);
 
-export default function FormQuestion({ initialDataQuestion }) {
-  const [data, setData] = useState(initialDataQuestion);
-
+  const updateData = (e) => {
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
+  };
   const dispatch = useDispatch();
   // use id
+
   const id = useId();
   // add data in store
+  // dispatch(addData({ ...data, id }));
   dispatch(addData(data));
   return (
     <Box
@@ -27,10 +36,8 @@ export default function FormQuestion({ initialDataQuestion }) {
         dir="rtl"
         labelInput="نام"
         nameInput="name"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        valueInput={data}
+        onChangeInput={updateData}
         required
         typeInput="text"
         styleInput={{ width: '40vw', padding: 1 }}
@@ -38,12 +45,10 @@ export default function FormQuestion({ initialDataQuestion }) {
       />
       <TextFields
         idInput={id}
+        valueInput={data}
         labelInput="توضیحات"
         nameInput="description"
-        onChangeInput={(e) => {
-          const { name, value } = e.target;
-          setData({ ...data, [name]: value });
-        }}
+        onChangeInput={updateData}
         required
         typeInput="textarea"
         styleInput={{ width: '40vw', padding: 1 }}
@@ -59,9 +64,11 @@ export default function FormQuestion({ initialDataQuestion }) {
       >
         <TextFields
           idInput={id}
+          valueInput={data}
           labelInput="زمان کل"
           nameInput="totalTime"
           onChangeInput={(e) => {
+            console.log(id);
             if (e.target.value < 0) {
               e.target.value = 0;
             } else {
@@ -78,6 +85,7 @@ export default function FormQuestion({ initialDataQuestion }) {
         <TextFields
           idInput={id}
           labelInput="Estimated"
+          valueInput={data}
           nameInput="Estimated"
           onChangeInput={(e) => {
             if (e.target.value < 0) {
@@ -96,11 +104,10 @@ export default function FormQuestion({ initialDataQuestion }) {
         <Select
           idInput={id}
           label="LocalBusiness"
+          placeholder="LocalBusiness"
           name="currency"
-          onChange={(e) => {
-            const { name, value } = e.target;
-            setData({ ...data, [name]: value });
-          }}
+          value="UnitedStatesDollar"
+          onChange={updateData}
           required
           sx={{ width: '12vw', padding: 1 }}
           variant="filled"

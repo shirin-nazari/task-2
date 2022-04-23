@@ -10,14 +10,32 @@ import { Alert, Button, IconButton, Paper } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import CloseIcon from '@mui/icons-material/Close';
 import Collapse from '@mui/material/Collapse';
+import Popover from '@mui/material/Popover';
+
+import Typography from '@mui/material/Typography';
 
 export default function FormAndjson() {
   const [copySuccess, setCopySuccess] = useState('');
   const data = useSelector((state) => state.data);
-  const [open, setOpen] = useState(true);
+  const [opened, setOpened] = useState(true);
   const [addInput, setAddInput] = useState(false);
-  // console.log(data);
-  const initialDataQuestion = {
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+  const initialDataHowTo = {
+    name: '',
+    description: '',
+  };
+  const initialDataRemove = {
     name: '',
     description: '',
   };
@@ -54,7 +72,8 @@ export default function FormAndjson() {
             }}
             variant="contained"
             onClick={(e) => {
-              dispatch(deleteData(initialDataQuestion));
+              dispatch(deleteData(initialDataRemove));
+              // dispatch(deleteData(data));
             }}
           >
             {' '}
@@ -72,25 +91,56 @@ export default function FormAndjson() {
             onClick={() => {
               navigator.clipboard.writeText(copyText);
               setCopySuccess(true);
-              setOpen(true);
+              setOpened(true);
             }}
           >
             <ContentCopyIcon />
             کپی
           </Button>
+
           <Button
             variant="contained"
+            aria-describedby={id}
             size="large"
             sx={{
               width: '9vw',
               display: 'flex',
               justifyContent: 'space-around',
             }}
+            onClick={handleClick}
           >
             {' '}
             <GoogleIcon />
             آزمایش
           </Button>
+          <Box>
+            <Popover
+              id={id}
+              open={open}
+              anchorEl={anchorEl}
+              onClose={handleClose}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+            >
+              <Typography sx={{ p: 2 }}>Rich Result Test</Typography>
+            </Popover>
+            <Popover
+              id={id}
+              open={open}
+              anchorEl={anchorEl}
+              onClose={handleClose}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+            >
+              <Typography sx={{ p: 2 }}>
+                Structured Data Testing Tool{' '}
+              </Typography>
+            </Popover>{' '}
+          </Box>
         </Box>
         <Paper
           variant="outlined"
@@ -107,7 +157,7 @@ export default function FormAndjson() {
       </Box>
 
       <Box>
-        <FormHowTo initialDataQuestion={initialDataQuestion} />
+        <FormHowTo initialDataHow={initialDataHowTo} />
         <Button
           size="large"
           variant="contained"
@@ -121,7 +171,7 @@ export default function FormAndjson() {
           </Collapse>
         )} */}
         {copySuccess && (
-          <Collapse in={open}>
+          <Collapse in={opened}>
             <Alert
               severity="success"
               sx={{ width: '30vw' }}
@@ -131,7 +181,7 @@ export default function FormAndjson() {
                   aria-label="close"
                   color="inherit"
                   onClick={() => {
-                    setOpen(false);
+                    setOpened(false);
                   }}
                 >
                   <CloseIcon fontSize="inherit" />

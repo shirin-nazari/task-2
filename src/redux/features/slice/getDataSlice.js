@@ -10,8 +10,18 @@ const getDataSlice = createSlice({
       state.data = payload;
     },
     deleteData(state, { payload }) {
-      // // delete data[payload];
+      // delete state.data.keys[payload];
+      // Object.keys(null);
+      // Object.values((state.data = null));
+      // if (window.UndefinedVariable) {
+      //   Object.assign(window.UndefinedVariable, {});
+      // }
+
       state.data = payload;
+      // const index = state.data.findIndex((item) => item.id === payload);
+      // if (index > -1) {
+      //   state.splice(index, 1);
+      // }
       // const deleteOb = state.data
       //   .map((item) => {
       //     return item.id;
