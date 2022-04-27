@@ -31,7 +31,9 @@ export default function FormAndjson() {
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
   // console.log(data);
-  const copyText = `<script type="application/ld+json">
+  const copyText = `
+
+  <script type="application/ld+json">
   ${JSON.stringify(data.data)}
   </script>
 `;
