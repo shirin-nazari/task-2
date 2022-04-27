@@ -10,10 +10,11 @@ import { MenuItem, Select } from '@mui/material';
 // };
 export default function FormQuestion({ initialDataHowTo }) {
   const [data, setData] = useState(initialDataHowTo);
-
+  const [value, setValue] = useState('');
   const updateData = (e) => {
     const { name, value } = e.target;
     setData({ ...data, [name]: value });
+    setValue('');
   };
   const dispatch = useDispatch();
   // use id
@@ -36,7 +37,7 @@ export default function FormQuestion({ initialDataHowTo }) {
         dir="rtl"
         labelInput="نام"
         nameInput="name"
-        valueInput={data}
+        valueInput={value}
         onChangeInput={updateData}
         required
         typeInput="text"
@@ -64,7 +65,7 @@ export default function FormQuestion({ initialDataHowTo }) {
       >
         <TextFields
           idInput={id}
-          valueInput={data}
+          valueInput={value}
           labelInput="زمان کل"
           nameInput="totalTime"
           onChangeInput={(e) => {

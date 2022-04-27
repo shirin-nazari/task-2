@@ -3,7 +3,11 @@ import { Box } from '@mui/system';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import GoogleIcon from '@mui/icons-material/Google';
-import { deleteData, copyData } from '../../redux/features/slice/getDataSlice';
+import {
+  deleteData,
+  copyData,
+  addData,
+} from '../../redux/features/slice/getDataSlice';
 import ShowJsonCode from '../ShowJsonCode';
 import FormHowTo from './FormHowTo';
 import { Alert, Button, IconButton, Paper } from '@mui/material';
@@ -73,6 +77,7 @@ export default function FormAndjson() {
             variant="contained"
             onClick={(e) => {
               dispatch(deleteData(initialDataRemove));
+              dispatch(addData(initialDataRemove));
               // dispatch(deleteData(data));
             }}
           >
@@ -157,7 +162,10 @@ export default function FormAndjson() {
       </Box>
 
       <Box>
-        <FormHowTo initialDataHow={initialDataHowTo} />
+        <FormHowTo
+          initialDataHow={initialDataHowTo}
+          initialDataRemove={initialDataRemove}
+        />
         <Button
           size="large"
           variant="contained"
